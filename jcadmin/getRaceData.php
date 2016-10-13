@@ -13,40 +13,58 @@ $html->load_file('http://racing.hkjc.com/racing/Info/meeting/RaceCard/chinese/Lo
 
 $allPlaceUrl = $html->find('div.raceNum')[0]->children(0)->children(0)->children();
 
-$firstPageRace = $html->find('tr.tdAlignC');
+$firstPageRace = $html->find('table.draggable')[0]->find('tr.tdAlignC');
 
 $AllRace = [];
 
+$thisRace = [];
 foreach ($firstPageRace as $value)
 {
     $race = [];
+
+
     $num    =   $value->children()[0]->innertext;
     $name   =  $value->children()[3]->children(0)->innertext;
     $knight =  $value->children()[6]->children(0)->innertext;
     $trainer=  $value->children()[9]->children(0)->innertext;
 
-    $race[] = $num;
-    $race[] = $name;
-    $race[] = $knight;
-    $race[] = $trainer;
-
-    $AllRace[] = $race;
+    if($num&&$name&&$knight&&$trainer){
+        $race[] = $num;
+        $race[] = $name;
+        $race[] = $knight;
+        $race[] = $trainer;
+        $thisRace[] = $race;
+    }
 }
+
+$AllRace[] = $thisRace;
+
+$html=null;
 
 for($i = 3 ;$i < (count($allPlaceUrl)-1);$i++)
 {
-    getRaceDataOneUrl($html,$AllRace,'http:/'.$allPlaceUrl[$i]->children(0)->href);
+    $url = $allPlaceUrl[$i]->children(0)->href;
+
+    $url = 'http://racing.hkjc.com'.$url;
+
+    $AllRace[] = getRaceDataOneUrl($url);
+
 }
 
-function getRaceDataOneUrl($html,$AllRace,$url)
+
+function getRaceDataOneUrl($url)
 {
+    $html = new simple_html_dom();
+
     $html->load_file($url);
 
-    $firstAllRace = $html->find('tr.tdAlignC');
+    $firstAllRace = $html->find('table.draggable')[0]->find('tr.tdAlignC');
 
+    $thisRace = [];
     foreach ($firstAllRace as $value)
     {
         $race = [];
+
         $num    =   $value->children()[0]->innertext;
         $name   =  $value->children()[3]->children(0)->innertext;
         $knight =  $value->children()[6]->children(0)->innertext;
@@ -57,10 +75,12 @@ function getRaceDataOneUrl($html,$AllRace,$url)
         $race[] = $knight;
         $race[] = $trainer;
 
-        $AllRace[] = $race;
-    }
+        $thisRace[] = $race;
 
-    return $AllRace;
+    }
+    $html=null;
+
+    return $thisRace;
 }
 
-var_dump($AllRace);
+echo count($AllRace);
