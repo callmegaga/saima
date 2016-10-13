@@ -1,1 +1,16 @@
-new one
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>竞猜</title>
+</head>
+<body>
+<input type="text" id="test">
+</body>
+<script src="template/saima/jcadmin/jquery.min.js"></script>
+<script>
+   $.get('template/saima/jcadmin/getRaceData.php',function (data) {
+       console.log(data)
+   })
+</script>
+</html>
