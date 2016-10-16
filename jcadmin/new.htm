@@ -3,14 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>竞猜</title>
+    <link rel="stylesheet" href="template/saima/jcadmin/bootstrap.min.css">
 </head>
 <body>
-<input type="text" id="test">
+
+<h4 id="info">正在加载比赛信息，请不要离开页面</h4>
+<table id="detail" class="table">
+</table>
+<nav>
+    <ul class="pagination" id="pages">
+    </ul>
+</nav>
 </body>
 <script src="template/saima/jcadmin/jquery.min.js"></script>
 <script>
+
    $.get('template/saima/jcadmin/getRaceData.php',function (data) {
-       console.log(data)
-   })
+       var data = JSON.parse(data);
+       var AllRace = [];
+       var Alltime =[];
+       var head = "<tr><th>序号</th><th>马名</th><th>骑师</th><th>练马师</th></tr>";
+       for(var i in data){
+           var race = [];
+           race.push(head);
+           for(var n in data[i]){
+               if( n == data[i].length-1){
+                   Alltime.push(data[i][n])
+               }else {
+                   var num = data[i][n][0];
+                   var name = data[i][n][1];
+                   var knight = data[i][n][2];
+                   var trainer = data[i][n][3];
+                   var detail = "<tr><td>"+num+"</td><td>"+name+"</td><td>"+knight+"</td><td>"+trainer+"</td></tr>";
+                   race.push(detail)
+               }
+           }
+           AllRace.push(race)
+       }
+       $("#detail").html(AllRace[0].join(""));
+       $("#info").html(Alltime[0]);
+
+       var pages = "";
+       for(var m =0 ;m<AllRace.length;m++){
+           var count = m + 1;
+           var page = "<li><a id='"+m+"' class='active'>"+count+"</a></li>";
+           pages += page;
+       }
+
+       $("#pages").html(pages);
+       $("li a").click(function () {
+           pageClick(this.id);
+       });
+       $("li").css({"cursor":"pointer"});
+   }).error(function() {
+       $("#info").html("获取比赛信息失败，请不要在比赛进行的当天进行该操作");
+   });
+
+    function pageClick(id) {
+        console.log(this.id);
+    }
 </script>
 </html>

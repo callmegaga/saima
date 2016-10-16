@@ -15,6 +15,11 @@ $allPlaceUrl = $html->find('div.raceNum')[0]->children(0)->children(0)->children
 
 $firstPageRace = $html->find('table.draggable')[0]->find('tr.tdAlignC');
 
+$detailTime = $html->find('table.lineH20')[0]->children(0)->children(0)->innertext;
+
+
+$detailTime = getTimeInfo($detailTime);
+
 $AllRace = [];
 
 $thisRace = [];
@@ -28,6 +33,7 @@ foreach ($firstPageRace as $value)
     $knight =  $value->children()[6]->children(0)->innertext;
     $trainer=  $value->children()[9]->children(0)->innertext;
 
+
     if($num&&$name&&$knight&&$trainer){
         $race[] = $num;
         $race[] = $name;
@@ -36,6 +42,8 @@ foreach ($firstPageRace as $value)
         $thisRace[] = $race;
     }
 }
+
+$thisRace[] = $detailTime;
 
 $AllRace[] = $thisRace;
 
@@ -51,6 +59,44 @@ for($i = 3 ;$i < (count($allPlaceUrl)-1);$i++)
 
 }
 
+function trimall($str)//删除空格
+{
+    $qian=array(" ","　","\t","\n","\r");$hou=array("","","","","");
+    return str_replace($qian,$hou,$str);
+}
+
+function getTimeInfo($info)
+{
+    $data = trimall($info);
+
+    $tmp = explode("<br/>", $data)[0];
+
+    $tmp = explode(">",$tmp)[1];
+
+    $changci = (string)explode("&",$tmp)[0];
+
+    $tmp = explode("<br/>", $data)[1];
+
+    $nian = (string)explode("&#", $tmp)[0];
+
+    $tmp = explode("<br/>", $data)[1];
+
+    $tmp = explode(";", $tmp)[1];
+
+    $yue = (string)explode("&#", $tmp)[0];
+
+    $tmp = explode("<br/>", $data)[1];
+
+    $tmp = explode(";", $tmp)[2];
+
+    $ri = (string)explode("&#", $tmp)[0];
+
+    $tmp = explode("<br/>", $data)[1];
+
+    $shijian = (string)explode(";", $tmp)[6];
+
+    return $changci.','.$nian.','.$yue.','.$ri.$shijian;
+}
 
 function getRaceDataOneUrl($url)
 {
@@ -83,4 +129,4 @@ function getRaceDataOneUrl($url)
     return $thisRace;
 }
 
-echo count($AllRace);
+echo json_encode($AllRace);
