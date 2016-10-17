@@ -19,43 +19,63 @@
 <script src="template/saima/jcadmin/jquery.min.js"></script>
 <script>
     var AllRace = [];
+    var postAllRace = [];
     var Alltime =[];
+    var postAllTime = [];
+
+
     $.get('template/saima/jcadmin/getRaceData.php',function (data) {
        var data = JSON.parse(data);
        var head = "<tr><th>序号</th><th>马名</th><th>骑师</th><th>练马师</th></tr>";
        for(var i in data){
            var race = [];
            race.push(head);
+           var postRace = [];
            for(var n in data[i]){
                if( n == data[i].length-1){
-                   Alltime.push(data[i][n])
+                   Alltime.push(data[i][n]);
+                   postAllTime.push(data[i][n])
                }else {
                    var num = data[i][n][0];
                    var name = data[i][n][1];
                    var knight = data[i][n][2];
                    var trainer = data[i][n][3];
                    var detail = "<tr><td>"+num+"</td><td>"+name+"</td><td>"+knight+"</td><td>"+trainer+"</td></tr>";
-                   race.push(detail)
+                   race.push(detail);
+                   var oneRaceDetail = [];
+                   oneRaceDetail[0] = num;
+                   oneRaceDetail[1] = name;
+                   oneRaceDetail[2] = knight;
+                   oneRaceDetail[3] = trainer;
+                   postRace.push(oneRaceDetail.join(","));
                }
            }
+           postAllRace.push(postRace.join("."));
            AllRace.push(race)
-       }
-       $("#detail").html(AllRace[0].join(""));
-       $("#info").html(Alltime[0]);
+        }
+        $("#detail").html(AllRace[0].join(""));
+        $("#info").html(Alltime[0]);
 
-       var pages = "";
-       for(var m =0 ;m<AllRace.length;m++){
+        var pages = "";
+        for(var m =0 ;m<AllRace.length;m++){
            var count = m + 1;
            var page = "<li id='"+m+"'><a class='active'>"+count+"</a></li>";
            pages += page;
-       }
+        }
 
-       $("#pages").html(pages);
-       $("li").click(function () {
+        $("#pages").html(pages);
+        $("li").click(function () {
            pageClick(this.id);
-       });
-       $("li").css({"cursor":"pointer"});
+        });
+        $("li").css({"cursor":"pointer"});
         $("#saveAndNew").html("保存并开启竞猜");
+
+        $("#saveAndNew").click(function () {
+            $.post('template/saima/jcadmin/saveAndNew.php',{time:postAllTime.join(';'),race:postAllRace.join(";")},function (data) {
+                console.log(data)
+            })
+        })
+
    }).error(function() {
         $("#info").html("获取比赛信息失败，请不要在比赛进行的当天进行该操作");
     });
@@ -64,10 +84,6 @@
         $("#detail").html(AllRace[id].join(""));
         $("#info").html(Alltime[id]);
     }
-    $("#saveAndNew").click(function () {
-        $.get('template/saima/jcadmin/saveAndNew.php',function (data) {
-            console.log(data)
-        })
-    })
+
 </script>
 </html>
