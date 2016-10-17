@@ -83,4 +83,4 @@ function getRaceDataOneUrl($url)
     return $thisRace;
 }
 
-echo count($AllRace);
+echo json_encode($AllRace);
