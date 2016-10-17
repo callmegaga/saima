@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ehigh
- * Date: 16-10-13
- * Time: 下午5:49
- */
 require_once 'simple_html_dom.php';
 
 $html = new simple_html_dom();
@@ -106,6 +100,10 @@ function getRaceDataOneUrl($url)
 
     $firstAllRace = $html->find('table.draggable')[0]->find('tr.tdAlignC');
 
+    $detailTime = $html->find('table.lineH20')[0]->children(0)->children(0)->innertext;
+
+    $detailTime = getTimeInfo($detailTime);
+
     $thisRace = [];
     foreach ($firstAllRace as $value)
     {
@@ -124,6 +122,8 @@ function getRaceDataOneUrl($url)
         $thisRace[] = $race;
 
     }
+    $thisRace[] = $detailTime;
+
     $html=null;
 
     return $thisRace;
