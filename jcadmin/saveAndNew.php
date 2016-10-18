@@ -13,7 +13,10 @@ try
     DB::query("TRUNCATE TABLE pre_common_saima_detail");
     foreach ($races as $key => $value)
     {
-        $id = DB::insert("common_saima_race", array("time"=>$times[$key]),true);
+        $timeTmp = explode(",",$times[$key]);
+        $timeStr = $timeTmp[1]."-".$timeTmp[2]."-".$timeTmp[3]."-".$timeTmp[5];
+        $time = strtotime($timeStr) - 8*60*60;
+        $id = DB::insert("common_saima_race", array("time"=>$times[$key],"end"=>$time),true);
 
         $oneRaceDetail = explode(".",$value);
 
