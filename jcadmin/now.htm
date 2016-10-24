@@ -6,23 +6,57 @@
     <link rel="stylesheet" href="template/saima/jcadmin/bootstrap.min.css">
 </head>
 <body>
+<div class="row">
+    <div class="col-md-6">
+        <h4 id="info">正在加载比赛信息，请不要离开页面</h4>
+        <table id="detail" class="table .table-hover"></table>
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+            <tr><th>彩池</th><th>胜出组合</th><th>派彩</th></tr>
+            </thead>
+            <tbody>
+            <tr><td>独赢</td><td><input type="text" class="input" id="type_1"></td><td><input type="text" class="input" id="type_1_result"></td></tr>
 
-<h4 id="info">正在加载比赛信息，请不要离开页面</h4>
-<table id="detail" class="table .table-hover">
-</table>
-<nav>
-    <ul class="pagination" id="pages">
-    </ul>
-</nav>
+            <tr><td rowspan="3">位置</td><td><input type="text" class="input" id="type_2_1"></td><td><input type="text" class="input" id="type_2_1_result"></td></tr>
+            <tr>                         <td><input type="text" class="input" id="type_2_2"></td><td><input type="text" class="input" id="type_2_2_result"></td>
+            <tr>                         <td><input type="text" class="input" id="type_2_3"></td><td><input type="text" class="input" id="type_2_3_result"></td>
+
+            <tr><td>连赢</td><td><input type="text" class="input" id="type_3"></td><td><input type="text" class="input" id="type_3_result"></td>
+
+            <tr><td rowspan="3">位置Q</td><td><input type="text" class="input" id="type_4_1"></td><td><input type="text" class="input" id="type_4_1_result"></td></tr>
+            <tr>                          <td><input type="text" class="input" id="type_4_2"></td><td><input type="text" class="input" id="type_4_2_result"></td></tr>
+            <tr>                          <td><input type="text" class="input" id="type_4_3"></td><td><input type="text" class="input" id="type_4_3_result"></td></tr>
+
+            <tr><td>三重彩</td> <td><input type="text" class="input" id="type_5"></td><td><input type="text" class="input" id="type_5_result"></td></tr>
+            <tr><td>单T</td>    <td><input type="text" class="input" id="type_6"></td><td><input type="text" class="input" id="type_6_result"></td></tr>
+            <tr><td>四连环</td> <td><input type="text" class="input" id="type_7"></td><td><input type="text" class="input" id="type_7_result"></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-12">
+        <hr>
+    </div>
+    <div class="col-md-4">
+        <nav>
+            <ul class="pagination" id="pages" >
+            </ul>
+        </nav>
+    </div>
+    <div class="col-md-6" style="margin-top: 15px">
+        <button class="btn btn-warning" id="toHandleGame">结算比赛</button>
+        <button class="btn btn-warning" style="display: none" id="gameHaveDone" disabled>比赛已结算</button>
+    </div>
+</div>
 </body>
 <script src="template/saima/jcadmin/jquery.min.js"></script>
 <script>
     var AllRace = [];
     var Alltime =[];
-
+    var nowRace = 1;
     $.get('template/saima/jcadmin/getRaceInfo.php',function (data) {
         var data = JSON.parse(data);
-        console.log(data[0][0]['maming']);
         var head = "<tr><th>序号</th><th>马名</th><th>骑师</th><th>练马师</th></tr>";
         for(var i in data){
             var race = [];
@@ -47,10 +81,11 @@
         var pages = "";
         for(var m =0 ;m<AllRace.length;m++){
             var count = m + 1;
-            var page = "<li id='"+m+"'><a class='active'>"+count+"</a></li>";
+            var page = "<li id='"+m+"'><a>"+count+"</a></li>";
             pages += page;
         }
         $("#pages").html(pages);
+        $("#0").addClass("active");
         $("li").click(function () {
             pageClick(this.id);
         });
@@ -62,5 +97,42 @@
     function pageClick(id) {
         $("#detail").html(AllRace[id].join(""));
         $("#info").html(Alltime[id]);
+        $("li").removeClass("active");
+        $("#"+id).addClass("active");
+        nowRace = id*1+1;
     }
+    //$(".input").attr("disabled",true);
+    //$("#toHandleGame").hide();
+    //$("#gameHaveDone").show();
+    $("#toHandleGame").click(function () {
+        console.log(nowRace*1 +1);
+        var type_1          = $("#type_1").val();
+        var type_1_result   = $("#type_1_result").val();
+        var type_2_1        = $("#type_2_1").val();
+        var type_2_1_result = $("#type_2_1_result").val();
+        var type_2_2        = $("#type_2_2").val();
+        var type_2_2_result = $("#type_2_2_result").val();
+        var type_2_3        = $("#type_2_3").val();
+        var type_2_3_result = $("#type_2_3_result").val();
+        var type_3          = $("#type_3").val();
+        var type_3_result   = $("#type_3_result").val();
+        var type_4_1        = $("#type_4_1").val();
+        var type_4_1_result = $("#type_4_1_result").val();
+        var type_4_2        = $("#type_4_2").val();
+        var type_4_2_result = $("#type_4_2_result").val();
+        var type_4_3        = $("#type_4_3").val();
+        var type_4_3_result = $("#type_4_3_result").val();
+        var type_5          = $("#type_5").val();
+        var type_5_result   = $("#type_5_result").val();
+        var type_6          = $("#type_6").val();
+        var type_6_result   = $("#type_6_result").val();
+        var type_7          = $("#type_7").val();
+        var type_7_result   = $("#type_7_result").val();
+
+        var postData = {rid:nowRace,type_1:type_1,type_1_result:type_1_result,type_2_1:type_2_1,type_2_1_result:type_2_1_result,type_2_2:type_2_2,type_2_2_result:type_2_2_result,type_2_3:type_2_3,type_2_3_result:type_2_3_result,type_3:type_3,type_3_result:type_3_result,type_4_1:type_4_1,type_4_1_result:type_4_1_result,type_4_2:type_4_2,type_4_2_result:type_4_2_result,type_4_3:type_4_3,type_4_3_result:type_4_3_result,type_5:type_5,type_5_result:type_5_result,type_6:type_6,type_6_result:type_6_result,type_7:type_7,type_7_result:type_7_result};
+        $.post("template/saima/jcadmin/finishGame.php",postData,function (data) {
+
+        })
+
+    })
 </script>

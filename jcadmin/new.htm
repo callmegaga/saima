@@ -73,6 +73,9 @@
         $("#saveAndNew").click(function () {
             $.post('template/saima/jcadmin/saveAndNew.php',{time:postAllTime.join(';'),race:postAllRace.join(";")},function (data) {
                 console.log(data)
+                if(data == "ok"){
+                    window.alert("保存成功！！！")
+                }
             })
         })
 
