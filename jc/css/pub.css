@@ -1,0 +1,30 @@
+.other { width:736px;}
+.other .odt { width:736px; height:20px; background:url(../img/bg-65.jpg) no-repeat}
+.other .obt { width:736px; height:20px; background:url(../img/bg-66.jpg) no-repeat}
+.other .obox { border-left:#d6981f solid 1px; border-right:#d6981f solid 1px; background:url(../img/bg-14.jpg) repeat-x #3b1204; width:734px; overflow:hidden }
+.other .obox .obox2 { width:693px; margin:0 0 0 7px; padding:0 12px; border-left:#e4c149 solid 1px; border-right:#e4c149 solid 1px; background:url(../img/bg-10.jpg) repeat-x;}
+
+.other .obox .obox2 .cdt { width:692px; height:7px; background:url(../img/bg-67.jpg) no-repeat}
+.other .obox .obox2 .cbt { width:692px; height:7px; background:url(../img/bg-68.jpg) no-repeat}
+.other .obox .obox2 .cbox { min-height:340px; width:672px;  padding:10px 10px; clear:both; background:url(../img/bg-69.jpg) no-repeat; }
+.other .obox .obox2 .cbox *{ font-size:15px; font-family:"microsoft yahei"; }
+.other .obox .obox2 .pge { background:#702e07; }
+.page { color:#a78522; font-size:14px}
+#ppRec select { }
+.other .obox .obox2 .cbox .tit { width:692px; height:50px; background:url(../img/bg-70.gif) no-repeat}
+.other .obox .obox2 .cbox .lit { width:692px; padding:5px 0 0 0; background:url(../img/bg-71.jpg) no-repeat;}
+.other .obox .obox2 .cbox .lit .p1 { height:30px; line-height:30px; margin-bottom:3px}
+.other .obox .obox2 .cbox .lit .p2 { height:30px; line-height:30px;margin-bottom:1px}
+.other .obox .obox2 .cbox .lit .tag { float:left; display:inline; margin:4px 10px 0 10px; width:54px; height:21px; line-height:21px; font-weight:bold; text-align:center; background:url(../img/bg-73.gif) no-repeat; color:#744802;}
+.other .obox .obox2 .cbox .lit .text { float:left; display:inline; width:615px;  }
+
+#popLayer{
+    position: absolute; top: 150px; left: 0px;
+    width: 800px; z-index: 100;  text-align: center;
+}
+#loadlayer{ position: absolute; display:none; /*box-shadow:0px;*/  }
+a{ text-decoration:none }
+a:link {color: gray} 	/* 未被访问的链接 蓝色 */
+a:visited {color: gray} /* 已被访问过的链接 蓝色 */
+a:hover {color: white;text-decoration:none} 	/* 鼠标悬浮在上的链接 蓝色 */
+a:active {color: blue}	/* 鼠标点中激活链接 蓝色 */

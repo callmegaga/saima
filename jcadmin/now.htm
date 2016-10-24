@@ -69,10 +69,10 @@
                 else if(n == data[i].length-1){
                     Allstatus.push(parseInt(data[i][n]))
                 } else {
-                    num = data[i][n]['num'];
-                    name = data[i][n]['maming'];
-                    knight = data[i][n]['knight'];
-                    trainer = data[i][n]['trainer'];
+                    var num = data[i][n]['num'];
+                    var name = data[i][n]['maming'];
+                    var knight = data[i][n]['knight'];
+                    var trainer = data[i][n]['trainer'];
                     var detail = "<tr><td>"+num+"</td><td>"+name+"</td><td>"+knight+"</td><td>"+trainer+"</td></tr>";
                     race.push(detail);
                 }

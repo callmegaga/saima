@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>去赛马吧</title>
+    <link href="css/main.css" rel="stylesheet">
+</head>
+
+
+
+<body>
+<div class="hpic"><img src="img/bg3331.png" /></div>
+<span id="pptm2" style="display:none"></span>&nbsp;
+<span id="pptm3" style="display:none"></span>
+<span id="pptm"  style="display:none"></span>
+<div class="main">
+    <div class="tp"></div>
+    <div class="mbox">
+        <div class="head">
+            <ul>
+                <!--登录的用户名-->
+                <li class="li1" id="username"></li>
+                <!--登录用户的金币-->
+                <li class="li2"><span id="money"></span></li>
+            </ul>
+        </div>
+        <div class="row-fluid">
+            <div class="container-fluid" >
+                <div class="accordion-dt"></div>
+                <div class="accordion-box">
+                    <!--左边的菜单-->
+                    <div class="accordion" id="accordion-555736">
+                        <div class="accordion-group">
+                            <div class="accordion-inner" href="#accordion-element-71935" id="showThemenu">投注竞猜</div>
+                            <div id="accordion_element_71935" style="display:none">
+                                <div id=menu1 class="accordion-inner" name="menuelement" >
+                                    独赢
+                                </div>
+                                <div id=menu2 class="accordion-inner" name="menuelement" style="cursor:pointer;">
+                                    位置
+                                </div>
+                                <div id=menu3 class="accordion-inner" name="menuelement" style="cursor:pointer;">
+                                    连赢
+                                </div>
+                                <div id=menu4 class="accordion-inner" name="menuelement" style="cursor:pointer;">
+                                    位置Q
+                                </div>
+                                <div id=menu5 class="accordion-inner" name="menuelement" style="cursor:pointer; ">
+                                    三重彩
+                                </div>
+                                <div id=menu6 class="accordion-inner" name="menuelement" style="cursor:pointer;">
+                                    单T
+                                </div>
+                                <div id="menu7" class="accordion-inner" name="menuelement" style="cursor:pointer; ">
+                                    四连环
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div id="menu8" class="accordion-inner" name="menuelement" >投注记录</div>
+                            <div id="menu9" class="accordion-inner" name="menuelement" data-toggle="modal" href="#huikouModal">投注回扣</div>
+                            <div id="menu10" class="accordion-inner" name="menuelement" data-toggle="modal" href="#huikouModal">推广下线</div>
+                            <div id="menu11" class="accordion-inner" name="menuelement" data-toggle="modal" href="#huikouModal">帐户变动</div>
+                            <div id="menu12" class="accordion-inner" >关于游戏</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-bt"></div>
+            </div>
+
+            <div class="span10 right" >
+
+                <div id="xuanhaospan2">
+                    <div class="row-fluid">
+                        <div class="span8" id=lay23>
+                            <div class="xuanhao" >
+                                <div class="x-dt"></div>
+                                <div class="x-box">
+                                    <div class="x-box2">
+                                        <div class="well wf">
+                                            <h4 id="wanfatitle">独赢</h4>
+                                            <p id="wanfajieshao">选中一场赛事中的第1名马匹</p>
+                                        </div>
+                                        <div class="well">
+                                            <div class="pagination" id="qishuchoose">
+                                                <p id="memo"></p>
+
+                                                <!--场次-->
+                                                <ul class="nav-pills" id="qsad" >
+                                                    <li id="groud1" style="margin-right:5px;display: none" class="chooseRace"><a id=menu13 href="#..">1</a></li>
+                                                    <li id="groud2" style="margin-right:5px;display: none" class="chooseRace"><a id=menu14 href="#..">2</a></li>
+                                                    <li id="groud3" style="margin-right:5px;display: none" class="chooseRace"><a id=menu15 href="#..">3</a></li>
+                                                    <li id="groud4" style="margin-right:5px;display: none" class="chooseRace"><a id=menu16 href="#..">4</a></li>
+                                                    <li id="groud5" style="margin-right:5px;display: none" class="chooseRace"><a id=menu17 href="#..">5</a></li>
+                                                    <li id="groud6" style="margin-right:5px;display: none" class="chooseRace"><a id=menu18 href="#..">6</a></li>
+                                                    <li id="groud7" style="margin-right:5px;display: none" class="chooseRace"><a id=menu19 href="#..">7</a></li>
+                                                    <li id="groud8" style="margin-right:5px;display: none" class="chooseRace"><a id=menu20 href="#..">8</a></li>
+                                                    <li id="groud9" style="margin-right:5px;display: none" class="chooseRace"><a id=menu21 href="#..">9</a></li>
+                                                    <li id="groud10" style="margin-right:5px;display: none" class="chooseRace"><a id=menu22 href="#..">10</a></li>
+                                                    <li id="groud11" style="margin-right:5px;display: none" class="chooseRace"><a id=menu23 href="#..">11</a></li>
+                                                </ul>
+                                            </div>
+
+
+                                            <!--name tab-->
+                                            <div class="game">
+                                                <table width="362" border="0" cellpadding="0" cellspacing="0" id="xuanhaotable">
+                                                    <thead style="background:url(img/bg-30.jpg) repeat-x; font-weight:normal; color:#000; font-size:13px">
+                                                    <tr>
+                                                        <td class="td1" height="22" align="center" valign="middle" id="_xm" >
+                                                            序号</td>
+                                                        <td class="td2" height="22" align="center" valign="middle" id="_xm1">
+                                                            <span style="color:#d39913">..</span>马名<span style="color:#d39913">..</span></td>
+                                                        <td class="td2" height="22" align="center" valign="middle" id="_xm2">
+                                                            <span style="color:#d39913">..</span>骑师<span style="color:#d39913">..</span></td>
+                                                        <td class="td2" height="22" align="center" valign="middle" id=head_xm3>
+                                                            <span style="color:#d39913">..</span>练马师<span style="color:#d39913">..</span></td>
+                                                        <td class="td3" height="22" align="right" valign= "middle" id='head1' name="q1">&nbsp;第一</td>
+                                                        <td class="td3" height="22" align="center" valign="middle" id='head2' name="q2" style="display:none;"></td>
+                                                        <td class="td3" height="22" align="center" valign="middle" id='head3' name="q3" style="display:none;"></td>
+                                                        <td class="td3" height="22" align="center" valign="middle" id='head4' name="q4" style="display:none;"></td>
+                                                    </tr>
+                                                    </thead>
+
+                                                    <tbody>
+                                                    <tr id="Rrname1" class="detailContainer" style="display:none;" >
+                                                        <td class="td1" height="24" align="center" valign="middle">1</td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name1"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name_1"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name__1"></td>
+
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t1">
+                                                            <input type="radio" name="q1" value="1" /><span id="space11">&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t2">
+                                                            <input type="radio" name="q2" value="1" /><span id="space21">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t3">
+                                                            <input type="radio" name="q3" value="1" /><span id="space31">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t4">
+                                                            <input type="radio" name="q4" value="1" />
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr id="Rrname2" class="detailContainer" style="background:#b35e03; width:362px;display:none;" >
+                                                        <td class="td1" height="24" align="center" valign="middle">2</td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name2"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name_2"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name__2"></td>
+
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t1">
+                                                            <input type="radio" name="q1" value="2" /><span id="space12">&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t2">
+                                                            <input type="radio" name="q2" value="2" /><span id="space22">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t3">
+                                                            <input type="radio" name="q3" value="2" /><span id="space32">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t4">
+                                                            <input type="radio" name="q4" value="2" />
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr id="Rrname3" class="detailContainer" style="display:none;" >
+                                                        <td class="td1" height="24" align="center" valign="middle">3</td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name3"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name_3"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name__3"></td>
+
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t1">
+                                                            <input type="radio" name="q1" value="3" /><span id="space13">&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t2">
+                                                            <input type="radio" name="q2" value="3" /><span id="space23">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t3">
+                                                            <input type="radio" name="q3" value="3" /><span id="space33">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t4">
+                                                            <input type="radio" name="q4" value="3" />
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr id="Rrname4" class="detailContainer" style="background:#b35e03; width:362px;display:none;" >
+                                                        <td class="td1" height="24" align="center" valign="middle">4</td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name4"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name_4"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name__4"></td>
+
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t1">
+                                                            <input type="radio" name="q1" value="4" /><span id="space14">&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t2">
+                                                            <input type="radio" name="q2" value="4" /><span id="space24">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t3">
+                                                            <input type="radio" name="q3" value="4" /><span id="space34">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t4">
+                                                            <input type="radio" name="q4" value="4" />
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr id="Rrname5" class="detailContainer" style="display:none;" >
+                                                        <td class="td1" height="24" align="center" valign="middle">5</td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name5"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name_5"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name__5"></td>
+
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t1">
+                                                            <input type="radio" name="q1" value="5" /><span id="space15">&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t2">
+                                                            <input type="radio" name="q2" value="5" /><span id="space25">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t3">
+                                                            <input type="radio" name="q3" value="5" /><span id="space35">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t4">
+                                                            <input type="radio" name="q4" value="5" />
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr id="Rrname6" class="detailContainer" style="background:#b35e03; width:362px;display:none;" >
+                                                        <td class="td1" height="24" align="center" valign="middle">6</td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name6"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name_6"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name__6"></td>
+
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t1">
+                                                            <input type="radio" name="q1" value="6" /><span id="space16">&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t2">
+                                                            <input type="radio" name="q2" value="6" /><span id="space26">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t3">
+                                                            <input type="radio" name="q3" value="6" /><span id="space36">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t4">
+                                                            <input type="radio" name="q4" value="6" />
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr id="Rrname7" class="detailContainer" style="display:none;" >
+                                                        <td class="td1" height="24" align="center" valign="middle">7</td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name7"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name_7"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name__7"></td>
+
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t1">
+                                                            <input type="radio" name="q1" value="7" /><span id="space17">&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t2">
+                                                            <input type="radio" name="q2" value="7" /><span id="space27">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t3">
+                                                            <input type="radio" name="q3" value="7" /><span id="space37">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t4">
+                                                            <input type="radio" name="q4" value="7" />
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr id="Rrname8" class="detailContainer" style="background:#b35e03; width:362px;display:none;" >
+                                                        <td class="td1" height="24" align="center" valign="middle">8</td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name8"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name_8"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name__8"></td>
+
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t1">
+                                                            <input type="radio" name="q1" value="8" /><span id="space18">&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t2">
+                                                            <input type="radio" name="q2" value="8" /><span id="space28">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t3">
+                                                            <input type="radio" name="q3" value="8" /><span id="space38">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t4">
+                                                            <input type="radio" name="q4" value="8" />
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr id="Rrname9" class="detailContainer" style="display:none;" >
+                                                        <td class="td1" height="24" align="center" valign="middle">9</td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name9"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name_9"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name__9"></td>
+
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t1">
+                                                            <input type="radio" name="q1" value="9" /><span id="space19">&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t2">
+                                                            <input type="radio" name="q2" value="9" /><span id="space29">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t3">
+                                                            <input type="radio" name="q3" value="9" /><span id="space39">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t4">
+                                                            <input type="radio" name="q4" value="9" />
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr id="Rrname10" class="detailContainer" style="background:#b35e03; width:362px;display:none;" >
+                                                        <td class="td1" height="24" align="center" valign="middle">10</td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name10"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name_10"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name__10"></td>
+
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t1">
+                                                            <input type="radio" name="q1" value="10" /><span id="space110">&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t2">
+                                                            <input type="radio" name="q2" value="10" /><span id="space210">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t3">
+                                                            <input type="radio" name="q3" value="10" /><span id="space310">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t4">
+                                                            <input type="radio" name="q4" value="10" />
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr id="Rrname11" class="detailContainer" style="display:none;" >
+                                                        <td class="td1" height="24" align="center" valign="middle">11</td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name11"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name_11"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name__11"></td>
+
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t1">
+                                                            <input type="radio" name="q1" value="11" /><span id="space111">&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t2">
+                                                            <input type="radio" name="q2" value="11" /><span id="space211">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t3">
+                                                            <input type="radio" name="q3" value="11" /><span id="space311">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t4">
+                                                            <input type="radio" name="q4" value="11" />
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr id="Rrname12" class="detailContainer" style="background:#b35e03; width:362px;display:none;" >
+                                                        <td class="td1" height="24" align="center" valign="middle">12</td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name12"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name_12"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name__12"></td>
+
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t1">
+                                                            <input type="radio" name="q1" value="12" /><span id="space112">&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t2">
+                                                            <input type="radio" name="q2" value="12" /><span id="space212">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t3">
+                                                            <input type="radio" name="q3" value="12" /><span id="space312">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t4">
+                                                            <input type="radio" name="q4" value="12" />
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr id="Rrname13" class="detailContainer" style="display:none;" >
+                                                        <td class="td1" height="24" align="center" valign="middle">13</td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name13"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name_13"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name__13"></td>
+
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t1">
+                                                            <input type="radio" name="q1" value="13" /><span id="space113">&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t2">
+                                                            <input type="radio" name="q2" value="13" /><span id="space213">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t3">
+                                                            <input type="radio" name="q3" value="13" /><span id="space313">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t4">
+                                                            <input type="radio" name="q4" value="13" />
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr id="Rrname14" class="detailContainer" style="background:#b35e03; width:362px;display:none;" >
+                                                        <td class="td1" height="24" align="center" valign="middle">14</td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name14"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name_14"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name__14"></td>
+
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t1">
+                                                            <input type="radio" name="q1" value="14" /><span id="space114">&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t2">
+                                                            <input type="radio" name="q2" value="14" /><span id="space214">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t3">
+                                                            <input type="radio" name="q3" value="14" /><span id="space314">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t4">
+                                                            <input type="radio" name="q4" value="14" />
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr id="Rrname15" class="detailContainer" style="display:none;" >
+                                                        <td class="td1" height="24" align="center" valign="middle">15</td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name15"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name_15"></td>
+                                                        <td class="td2" height="24" align="center" valign="middle" id="name__15"></td>
+
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t1">
+                                                            <input type="radio" name="q1" value="15" /><span id="space115">&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t2">
+                                                            <input type="radio" name="q2" value="15" /><span id="space215">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t3">
+                                                            <input type="radio" name="q3" value="15" /><span id="space315">&nbsp;&nbsp;&nbsp;</span>
+                                                        </td>
+                                                        <td class="td3" height="24" align="right" valign="middle" name="t4">
+                                                            <input type="radio" name="q4" value="15" />
+                                                        </td>
+                                                    </tr>
+
+                                                    </tbody>
+
+                                                </table>
+                                            </div>
+                                            <div class="gout"></div>
+                                            <!--add jin bi-->
+                                            <div class="addjb">
+                                                <table width="100%" border="0" cellpadding="0" cellspacing="0" id="time7" style="display:none">
+                                                    <tr>
+                                                        <td width="176" align="right" valign="top">
+
+                                                            <div class="otime">
+                                                                <span class="c3" >投注截止</span><span class="c3" id=dd2>3</span>天<span class="c3" id=hh2>10</span>时<span class="c3 red" id=mm2>20</span>分<span class="c3 red" id=ss2>40</span>秒
+                                                            </div>
+
+                                                        </td><td width="100" align="center" valign="top">
+                                                            <input maxlength="8" id="zhushu"  value="输入金币" />
+                                                        </td>
+
+                                                        <td width="106" colspan="2" align="center" >
+                                                            <img id=add2 src="img/bg-44.jpg" width="89" height="33" style="cursor:pointer" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+                                                <table width="100%" border="0" cellpadding="0" cellspacing="0" id=time8 style="display:none">
+                                                    <tr>
+                                                        <td width="100%" height="33"  align="center" valign="middle"><span class="c3 theend" id="dd1"><strong>本场投注截止</strong></span></td>
+                                                    </tr>
+                                                </table>
+
+                                            </div>
+                                            <p style="display:none" id="time"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="x-bt"></div>
+                            </div>
+                        </div>
+
+                        <!--右边的提交-->
+                        <div class="righttj" id='rightBlock'>
+                            <div class="tj-dt" ></div>
+                            <div class="tj-box">
+                                <div class="tj-box2">
+                                    <div class="tj-list">
+                                        <div class="ttp"></div>
+                                        <div class="ttbox table">
+                                            <table width="100%" border="0" cellpadding="0" cellspacing="0" id="content">
+                                                <thead style="background:url(img/bg-30.jpg) repeat-x; font-weight:normal; color:#000;">
+                                                <tr>
+                                                    <td align="center" valign="middle">序号</td>
+                                                    <td align="center" valign="middle"><span class="STYLE1">场次</span></td>
+                                                    <td align="center" valign="middle"><span class="STYLE1">玩法</span></td>
+                                                    <td align="center" valign="middle"><span class="STYLE1">选号</span></td>
+                                                    <td align="center" valign="middle"><span class="STYLE1">金币</span></td>
+                                                    <td align="center" valign="middle">删除</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="ttb"></div>
+                                    </div>
+
+                                    <!--待提交的下注分页-->
+                                    <table width="100%" id="pagetab2">
+                                        <tr>
+                                            <td width="35%" height="38" align="center" valign="middle"><img src="img/prev-1.png" style="cursor:pointer"/></td>
+                                            <td width="65%" align="left" valign="middle"><img src="img/next-1.png" style="cursor:pointer"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="373" height="26" colspan="3" id="pp6">当前第1页&nbsp;共1页</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="tj-bt" ></div>
+                            <div class="tjbut"><input type="button" class="btn btn-warning" id="submiter" onClick="msgbox('确认后不可修改及撤消<br>是否确定投注？');" /></div>
+                            <div class="rbg"></div>
+                        </div>
+                    </div><a name="axx"></a>
+                    <p></p>
+                </div>
+
+                <!--帮助-->
+                <div class="other" id="help" style="display:none">
+                    <div class="odt"></div>
+                    <div class="obox">
+                        <div class="obox2">
+
+                            <div>
+                                <img style="cursor:pointer" id="help1img" width="116" height="37" src="img/help1.gif" /><img style="cursor:pointer" id="help2img" width="116" height="37" src="img/help2W.gif"/><img style="cursor:pointer" id="help3img" width="116" height="37" src="img/help3W.gif" />
+                            </div>
+                            <div class="cbox">
+                            </div>
+                            <div class="cbt"></div>
+                        </div>
+                    </div>
+                    <div class="obt"></div>
+                </div>
+                <!--投注回扣-->
+                <div class="other" id="xuanhaospan3" style="display:none">
+                    <div class="odt"></div>
+                    <div class="obox">
+                        <div class="obox2">
+                            <div class="cdt"></div>
+                            <div class="cbox">
+                                <div style="border:#ea9954 solid 1px; border-top:#e9bd15 solid 1px; text-align:center"> <!-- class="row-fluid"  -->
+                                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="grid" id='contentZK' style="border-collapse:collapse">
+                                        <tbody>
+                                        <tr style="height:26px; line-height:26px; color:#212121; background:url(img/bg-31.jpg) repeat-x; font-size:14px; font-weight:bold">
+                                            <td width="151"><div align="center"><strong>比赛日期</strong></div></td>
+                                            <td width="151"><div align="center"><strong>投注总额</strong></div></td>
+                                            <td width="78"><div align="center"><strong>回扣</strong></div></td>
+                                            <td width="94"><div align="center"><strong>状态</strong></div></td>
+                                            <td width="196"><div align="center"><strong>返回时间</strong></div></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="cbt"></div>
+                            <!-- <div class="page"> -->
+                            <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="border-collapse:collapse" id='contentZK2' >
+                                <tr id='pagetabZK'>
+                                    <td width="317" height="43" style="padding-top:7px;" align="right" valign="middle">
+                                        <img src='img/prev-1.png' style="cursor:pointer" onclick="prevZK()" />&nbsp;&nbsp;&nbsp;&nbsp;<img src='img/next-1.png' style="cursor:pointer" onclick="nextZK()" />
+                                    </td>
+                                    <td width="373" height="50" valign="middle">&nbsp;&nbsp;&nbsp;&nbsp;<span id=pp7 class="page">当前第1页&nbsp;共1页</span></td>
+                                </tr>
+                            </table>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                    <div class="obt"></div>
+                </div>
+
+                <!--记录-->
+                <div id="Record" class="other" style="display:none" >
+                    <div class="odt"></div>
+                    <div class="obox">
+                        <div class="obox2">
+                            <div class="cdt"></div>
+                            <div class="cbox">
+                                <div class="row-fluid">
+                                    <form name="frm">
+                                        <table width="100%"  border="0" cellpadding="0" cellspacing="0" id=RecordTab0 style="border-collapse:collapse">
+                                            <thead>
+                                            <tr height="55">
+                                                <td colspan="8">
+                                                    <table  border="0" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td width="29"><input name="rad" type="radio" style="width:14px" value="1" checked="checked" />从</td>
+                                                            <td width="199">
+                                                                <input id="dt7" style="width:70px;cursor:pointer" onclick="SelectDate(this,'yyyy-M-d',0,0)" size="10" maxlength="10" readonly /> 到 <input id="dt8" style="width:70px;cursor:pointer" onclick="SelectDate(this,'yyyy-M-d',0,0)" size="6" maxlength="10" readonly />
+                                                            </td>
+                                                            <td width="95">
+                                                                <input type="radio" name="rad" value="3" style="width:14px" />
+                                                                <select name="doing" id="doing" style="width:63px" onclick="change(rad,3)">
+                                                                    <option value="1" selected="selected">进行中</option>
+                                                                    <option value="2">已结束</option>
+                                                                </select></td>
+                                                            <td width="93"><input type="radio" name="rad" value="4" style="width:14px" />
+                                                                <select name="playing" id="playing" style="width:60px"  onclick="change(rad,4)">
+                                                                    <option value="1" selected="selected">独赢</option>
+                                                                    <option value="2">位置</option>
+                                                                    <option value="3">连赢</option>
+                                                                    <option value="4">位置Q</option>
+                                                                    <option value="5">三重彩</option>
+                                                                    <option value="6">单T</option>
+                                                                    <option value="7">四连环</option>
+                                                                </select></td>
+                                                            <td width="91"><input type="radio" name="rad" value="2" style="width:14px" />
+                                                                <select name="zhong" id="zhong" style="width:63px;"  onclick="change(rad,2)" >
+                                                                    <option value="1" selected="selected">已中奖</option>
+                                                                    <option value="2">未中奖</option>
+                                                                </select></td>
+                                                            <td width="93"><input type="radio" name="rad" value="5" style="width:14px" />
+                                                                <input name="Input" id="danhao" style="width:50px" onfocus="this.value=''"  onclick="change(rad,5)" value="单号" maxlength="10" /></td>
+                                                            <td width="72"><img src="img/search.png" style="cursor:pointer" /></td>
+                                                        </tr>
+                                                    </table></td>
+                                            </tr>
+                                            </thead>
+                                        </table>
+                                    </form>
+                                </div>
+                                <div class="table" style="text-align:center">
+                                    <table width="100%" border="0" cellpadding="0" cellspacing="0" id='RecordTab' style="border-collapse:collapse">
+                                        <thead>
+                                        <tr style="background:url(img/bg-25.jpg) repeat-x; color:#000">
+                                            <td width="57" height="30"><div align="center"><strong>单号</strong></div></td>
+                                            <td width="44" height="30"><div align="center"><strong>场次</strong></div></td>
+                                            <td width="46" height="30"><div align="center"><strong>玩法</strong></div></td>
+                                            <td width="103" height="30"><div align="center"><strong>选号</strong></div></td>
+                                            <td width="68" height="30"><div align="center"><strong>投注金币</strong></div></td>
+                                            <td width="170" height="30"><div align="center"><strong>投注时间</strong></div></td>
+                                            <td width="97" height="30"><div align="center"><strong>比赛日期</strong></div></td>
+                                            <td width="85" height="30"><div align="center"><strong>奖金</strong></div></td>
+                                        </tr>
+                                        <tr id='nodata' style="display:none">
+                                            <td colspan="8" align="center">没有满足条件的记录</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="cbt"></div>
+                            <!-- <div class="page"> -->
+                            <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" id='RecordTab2' style="border-collapse:collapse" >
+                                <tr >
+                                    <td width="320" height="43" style="padding-top:7px;" align="right" valign="middle">
+                                        <img src='img/prev-1.png' style="cursor:pointer" onclick="prevRec()" />&nbsp;&nbsp;&nbsp;&nbsp;<img src='img/next-1.png' style="cursor:pointer" onclick="nextRec()" />
+                                    </td>
+                                    <td width="373">&nbsp;&nbsp;&nbsp;&nbsp;<span id=pp8 class="page">当前第1页&nbsp;共1页</span></td>
+                                </tr>
+                            </table>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                    <div class="obt"></div>
+                </div>
+
+                <!--推广下线-->
+                <div id="line" class="other" style="display:none" >
+                    <div class="odt"></div>
+                    <div class="obox">
+                        <div class="obox2">
+                            <div class="cdt"></div>
+                            <div class="cbox">
+                                <div style="border:#ea9954 solid 1px; border-top:#e9bd15 solid 1px">
+                                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="grid" id='contentYJ' style="border-collapse:collapse">
+                                        <thead>
+                                        <tr style="height:26px; line-height:26px; color:#212121; background:url(img/bg-31.jpg) repeat-x; font-size:14px; font-weight:bold">
+                                            <td width="30"><div align="center"><strong>序号</strong></div></td>
+                                            <td width="120"><div align="center"><strong>用户</strong></div></td>
+                                            <td width="66"><div align="center"><strong>投注总额</strong></div></td>
+                                            <td width="45"><div align="center"><strong>抽佣</strong></div></td>
+                                            <td width="45"><div align="center"><strong>状态</strong></div></td>
+                                            <td width="150"><div align="center"><strong>返回时间</strong></div></td>
+                                            <td width="150"><div align="center"><strong>最近投注时间</strong></div></td>
+                                        </tr>
+                                        <tr id='nodata2' style="display:none;"><td colspan="8" align="center">没有满足条件的记录</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                    <p><p><p>
+                                </div>
+                            </div>
+                            <div class="cbt"></div>
+                            <!--  <div class="page" id='pagetabYJ' style="display:none"> -->
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse" id='pageTabYJ' >
+                                <tr >
+                                    <td width="320" height="43" style="padding-top:7px;" align="right" valign="middle">
+                                        <img src='img/prev-1.png' style="cursor:pointer" onclick="prevYJ()" />&nbsp;&nbsp;&nbsp;&nbsp;<img src='img/next-1.png' style="cursor:pointer" onclick="nextYJ()" />
+                                    </td>
+                                    <td width="373">&nbsp;&nbsp;&nbsp;&nbsp;<span id=pp9 class="page">当前第1页&nbsp;共1页</span></td>
+                                </tr>
+                            </table>
+                            <!--  </div> -->
+                        </div>
+                    </div>
+                    <div class="obt"></div>
+                    <p><p><p>
+                </div>
+                <!--推广下线-->
+
+                <!--帐户变动-->
+                <div id='accLay' style="display:none" >
+                    <iframe id="accFram" src="account.php" height="463px" width="100%" scrolling="no" frameborder="0"></iframe>
+                </div>
+
+            </div>
+            <p class="clear"></p>
+        </div>
+    </div>
+    <div class="bp"></div>
+    <p style="height:100px; font-size:36px"><p><p>
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:15px; color:gray">
+        <tr>
+            <td  align="center"><a href="http://racing.hkjc.com/racing/Info/meeting/Results/chinese/Local/" target="_blank" >赛果派彩</a> | <a href="http://racing.hkjc.com/racing/Info/meeting/RaceCard/chinese/" target="_blank"  >最新赛事</a>  | <a href="http://www.saima8.com/plugin.php?id=xnx3_shop:list&type=1" target="_blank" >金币换礼</a> | <a href="http://www.baidu.com" target="_blank" >游戏活动</a> | <a href="http://www.baidu.com" target="_blank"  >常见问题</a> | <a href="http://www.saima8.com/" target="_blank"  >返回论坛</a></td>
+        </tr>
+        <tr>
+            <td  align="center">Copyright &copy; 赛马吧Reserved版权所有</td>
+        </tr>
+        <tr>
+            <td  align="center">理性休闲竞猜 切勿沉迷游戏</td>
+        </tr>
+        <tr>
+            <td  align="center">邮箱：saima8@qq.com&nbsp;&nbsp;<img style="cursor:pointer" name="" src="img/qqimg.JPG" width="72" height="24" onclick="javascript:location.href='tencent://message/?uin=88011032&amp;Site=Sambow&amp;Menu=yes';" />&nbsp;欢迎提出宝贵意见</td>
+        </tr>
+    </table>
+
+</div>
+
+
+<div id="www_zzjs_net" class="poptz">
+    <div class="dt"><a href="JavaScript:;" onClick="Lock_CheckForm();"><img src="img/bg-61.jpg" /></a></div>
+    <div class="dd">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td height="56" align="center" valign="middle" id="alertcontent">&nbsp;</td>
+            </tr>
+            <tr>
+                <td height="38" align="center" valign="middle" id="actarea"><a href="JavaScript:;" onClick="Lock_CheckForm();"><img src="img/bg-38.jpg" /></a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script src="jquery-1.11.1.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

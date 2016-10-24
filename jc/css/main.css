@@ -1,0 +1,97 @@
+html { background:url(../img/bg-1.jpg); }
+body { min-width:970px; position:relative; width:970px; margin:0 auto; padding:0 75px 40px 75px; background: url(../img/bg-3.jpg) no-repeat top left;font-size:12px; line-height:20px;  }
+h1,h2,h3,h4,h5,h6,ul,li,dl,dt,dd,hr,div,p,form,input,font { margin:0; padding:0; font-weight:normal; text-indent:0; list-style-type:none; font-family:Arial, Helvetica, sans-serif}
+
+img { border:0}
+.b { font-weight:bold}
+.clear { clear:both}
+
+.mb10 { margin-bottom:10px;}
+
+.f13 { font-size:13px;}
+.f14 { font-size:14px;}
+
+.left,.l { display:inline; float:left}
+.right,.r { display:inline; float:right}
+
+.st { font-family:"宋体"}
+
+.yeall { color:#eee100}
+.bull { color:#5585c3}
+.red { color:#ff0000}
+
+a { text-decoration:none; color:#fff }
+a:hover { text-decoration:none; color:#000 }
+.table table,.table table td,.table table th{border:1px solid #ede56b; border-collapse:collapse;}
+
+.hpic { width:970px; height:40px; text-align:right; margin:0 auto; position:absolute; top:-5px; right:80px }
+.main { width:970px; margin:90px auto 0 auto;  color:#FFF; }
+.main .tp { width:970px; height:15px; background:url(../img/bg-4.jpg) no-repeat}
+.main .bp { width:970px; height:12px; background:url(../img/bg-5.jpg) no-repeat}
+.main .mbox { width:914px; background:url(../img/bg-2.jpg) repeat-y; padding:10px 28px}
+.main .mbox .head { width:914px; height:35px; margin-bottom:20px; padding:6px 0 0 0; background:url(../img/bg-6.jpg) no-repeat}
+.main .mbox .head li { float:left; display:inline; height:35px; line-height:35px; font-size:16px; color:#e39d2b; font-weight:bold}
+.main .mbox .head .li1 { padding-left:45px; background:url(../img/bg-8.gif) no-repeat 20px 2px }
+.main .mbox .head .li2 { padding-left:50px; background:url(../img/bg-9.gif) no-repeat 20px 2px }
+
+.container-fluid { width:160px; float:left; display:inline;}
+.accordion-dt { width:160px; height:60px; background:url(../img/1.jpg) no-repeat}
+.accordion-bt { width:160px; height:22px; background:url(../img/2.jpg) no-repeat}
+.accordion-box { border-left:#d6981f solid 1px; border-right:#d6981f solid 1px; background:url(../img/bg-14.jpg) repeat-x #3b1204; width:158px; overflow:hidden }
+.container-fluid .accordion { width:142px; margin:0 0 0 6px; padding:10px 0 10px 0; border-left:#e4c149 solid 1px; border-right:#e4c149 solid 1px; background:url(../img/bg-10.jpg) repeat-x}
+.accordion-inner { width:122px; height:36px; background:url(../img/bg-12.gif) no-repeat 0 0; text-align:center; line-height:36px; margin:0px 0 3px 15px; color:#383434; font-size:14px; font-family:"microsoft yahei"; font-weight:bold; cursor:pointer}
+.this { color:#FFF; background:url(../img/bg-12.gif) no-repeat 0 -381px;}
+#accordion_element_71935 .accordion-inner { width:122px; height:28px; background:url(../img/bg-12.gif) no-repeat 0 -130px; text-align:center; line-height:28px; margin:0px 0 3px 15px; color:#383434; font-size:13px; font-family:"microsoft yahei"; font-weight:bold; cursor:pointer}
+#accordion_element_71935 .this { color:#FFF; background:url(../img/bg-12.gif) no-repeat 0 -245px;}
+#accordion_element_71935 .accordion-inner:hover { color:#FFF; background:url(../img/bg-12.gif) no-repeat 0 -245px;}
+.accordion .accordion-inner:hover { color:#FFF; background:url(../img/bg-12.gif) no-repeat 0 -381px;}
+
+
+
+
+.right { width:736px;}
+.right .xuanhao { width:425px; float:left; display:inline;}
+.right .xuanhao .x-dt { width:425px; height:24px; background:url(../img/bg-15.jpg) no-repeat}
+.right .xuanhao .x-bt { width:425px; height:20px; background:url(../img/bg-16.jpg) no-repeat}
+.right .xuanhao .x-box { border-left:#d6981f solid 1px; border-right:#d6981f solid 1px; background:url(../img/bg-14.jpg) repeat-x #3b1204; width:423px; overflow:hidden }
+.right .xuanhao .x-box .x-box2 { width:382px; margin:0 0 0 6px; padding:0 12px; border-left:#e4c149 solid 1px; border-right:#e4c149 solid 1px; background:url(../img/bg-10.jpg) repeat-x}
+.right .xuanhao .x-box .x-box2 .wf { width:362px; height:57px; margin-bottom:10px; padding:10px; background:url(../img/bg-23.gif) no-repeat}
+.right .xuanhao .x-box .x-box2 .wf #wanfatitle { color:#47160c; font-size:14px;}
+.right .xuanhao .x-box .x-box2 .pagination { width:382px; height:70px; overflow:hidden; background:url(../img/bg-24.jpg) no-repeat}
+.right .xuanhao .x-box .x-box2 .pagination #memo { font-size:13px; padding:7px 0 0 0; height:30px; line-height:30px; padding-left:45px; color:#eedf2c; font-weight:bold;}
+.right .xuanhao .x-box .x-box2 .pagination .nav-pills { padding:11px 0 0 50px}
+.right .xuanhao .x-box .x-box2 .pagination .nav-pills li { float:left; display:inline; margin-right:10px }
+.right .xuanhao .x-box .x-box2 .pagination .nav-pills li a { display:block; color:#000; width:20px; padding:0 2px 0 0; line-height:20px; height:23px; background:url(../img/bg-26.png) no-repeat -58px 0; text-align:center;  cursor:pointer; font-size:14px}
+.right .xuanhao .x-box .x-box2 .pagination .nav-pills li a.this {background:url(../img/bg-26.png) no-repeat 0px 0; color:#FFF}
+.right .xuanhao .x-box .x-box2 .pagination .nav-pills li a:hover {background:url(../img/bg-26.png) no-repeat 0px 0; color:#FFF}
+
+.right .xuanhao .x-box .x-box2 .game { width:362px;  padding:10px 10px; clear:both; background:url(../img/bg-27.jpg) no-repeat;}
+.right .xuanhao .x-box .x-box2 .game table { border:#ffb36d solid 1px;}
+.right .xuanhao .x-box .x-box2 .game .td1 { width:30px; overflow:hidden}
+.right .xuanhao .x-box .x-box2 .game .td2 { width:60px; overflow:hidden}
+.right .xuanhao .x-box .x-box2 .game .td3 { width:38px; overflow:hidden}
+.right .xuanhao .x-box .x-box2 .game table input { cursor:pointer}
+.right .xuanhao .x-box .x-box2 .gout { width:382px; height:6px; clear:both; background:url(../img/bg-41.gif) no-repeat; margin-bottom:10px}
+.right .xuanhao .x-box .x-box2 .addjb { width:382px; height:35px; clear:both; padding-bottom:10px;}
+.right .xuanhao .x-box .x-box2 .addjb .otime { width:193px; height:35px; line-height:34px; display:block; background:url(../img/bg-42.jpg) no-repeat; text-align:center; font-size:14px; font-weight:bold; color:#080808}
+.right .xuanhao .x-box .x-box2 .addjb #zhushu { width:80px; height:33px; line-height:33px; padding-left:9px; border:0; background:url(../img/bg-43.jpg)  no-repeat; font-size:14px; color:#8f8f8f}
+.addjb .theend { width:193px; height:35px; line-height:34px; display:block; background:url(../img/bg-42.jpg) no-repeat; text-align:center; font-size:14px; font-weight:bold; color:#080808}
+.right .righttj { width:294px; float:right; display:inline; position:relative;}
+.right .righttj .tj-dt { width:294px; height:29px; background:url(../img/bg-45.jpg) no-repeat}
+.right .righttj .tj-bt { width:294px; height:20px; background:url(../img/bg-46.jpg) no-repeat}
+.right .righttj .tj-box { border-left:#d6981f solid 1px;  border-right:#d6981f solid 1px; background:#3e1404; width:292px; overflow:hidden }
+.right .righttj .tj-box .tj-box2 { width:260px; margin:0 0 0 5px; padding:0 9px; height:340px; border-left:#e4c149 solid 1px; border-right:#e4c149 solid 1px; background:url(../img/bg-10.jpg) repeat-x; position:relative }
+.right .righttj .tj-box .tj-box2 .tj-list {  }
+.right .righttj .tj-box .tj-box2 .tj-list .ttp { width:260px; height:5px; background:url(../img/bg-47.jpg) no-repeat;}
+.right .righttj .tj-box .tj-box2 .tj-list .ttb { width:260px; height:5px; background:url(../img/bg-49.jpg) no-repeat;}
+.right .righttj .tj-box .tj-box2 .tj-list .ttbox { width:243px; padding:5px 8px; height:254px; background:url(../img/bg-48.jpg) no-repeat;}
+.right .righttj .tj-box .tj-box2 #pagetab2 #pp6 { padding-left:10px; font-size:13px; color:#deb72d; font-weight:bold}
+.right .righttj .tjbut { position:absolute; top:315px; left:183px; z-index:6666}
+.right .righttj .tjbut .btn { width:110px; height:78px; background:url(../img/bg-62.gif) no-repeat 0 0; border:0; cursor:pointer}
+.right .righttj .rbg { width:294px; height:96px; background:url(../img/bg-63.gif) no-repeat top right}
+
+
+
+.poptz { width:400px; margin:0 auto; border:#7c6b4d solid 1px; display:none}
+.poptz .dt { width:390px; height:20px; padding:6px 10px 0 0; border-bottom:#7c6b4d solid 1px; text-align:right; background:url(../img/bg-36.jpg) 0 0}
+.poptz .dd { height:96px; width:400px; background:#fff8db; color:#7c6b4d; font-size:14px; line-height:22px; text-align:center}
