@@ -11,12 +11,13 @@ $AllRace = array();
 foreach ($races as $value)
 {
     $id = (int)$value['id'];
+    $status = $value['status'];
     $time = $value['time'];
 
     $details = DB::fetch_all("SELECT * FROM pre_common_saima_detail WHERE race='$id'");
 
     $details[] = $time;
-
+    $details[] = $status;
     $AllRace[] = $details;
 }
 

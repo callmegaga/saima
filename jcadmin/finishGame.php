@@ -60,6 +60,8 @@ handleType_6($rid,$type_6,$type_7_result);
 
 handleType_7($rid,$type_7,$type_7_result);
 
+DB::query("UPDATE pre_common_saima_race SET status = 1 WHERE id='$rid'");
+
 //处理单赢
 function handleType_1($rid,$type_1,$type_1_result)
 {
