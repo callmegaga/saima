@@ -44,7 +44,7 @@ foreach ($postData as $value)
 
                 C::t('common_member')->update($_G['uid'],array("credits" => $credit-$money));
 
-                echo C::t('common_member')->fetch($_G['uid'])['credits'];
+                echo "ok,";
             }
             else
             {

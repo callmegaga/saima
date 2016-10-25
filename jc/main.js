@@ -34,34 +34,62 @@ $("#add2").click(function () {
     }
     switch (NowGameType){
         case 1:
+            if(!value1){
+                window.alert("没有选中的号码");
+                return
+            }
             var thisGame = [NowRace*1+1,NowGameType,money,value1];
             AllGames.push(thisGame);
             break;
         case 2:
+            if(!value1){
+                window.alert("没有选中的号码");
+                return
+            }
             var thisGame = [NowRace*1+1,NowGameType,money,value1];
             AllGames.push(thisGame);
             break;
         case 3:
+            if(!value1 || !value2){
+                window.alert("没有选中的号码");
+                return
+            }
             var tmp = [parseInt(value1),parseInt(value2)].sort().join(",");
             var thisGame = [NowRace*1+1,NowGameType,money,tmp];
             AllGames.push(thisGame);
             break;
         case 4:
+            if(!value1 || !value2){
+                window.alert("没有选中的号码");
+                return
+            }
             var tmp = [parseInt(value1),parseInt(value2)].sort().join(",");
             var thisGame = [NowRace*1+1,NowGameType,money,tmp];
             AllGames.push(thisGame);
             break;
         case 5:
+            if(!value1 || !value2 || !value3){
+                window.alert("没有选中的号码");
+                return
+            }
             var tmp = [parseInt(value1),parseInt(value2),parseInt(value3)].join(",");
             var thisGame = [NowRace*1+1,NowGameType,money,tmp];
             AllGames.push(thisGame);
             break;
         case 6:
+            if(!value1 || !value2 || !value3){
+                window.alert("没有选中的号码");
+                return
+            }
             var tmp = [parseInt(value1),parseInt(value2),parseInt(value3)].sort().join(",");
             var thisGame = [NowRace*1+1,NowGameType,money,tmp];
             AllGames.push(thisGame);
             break;
         case 7:
+            if(!value1 || !value2 || !value3 || !value4){
+                window.alert("没有选中的号码");
+                return
+            }
             var tmp = [parseInt(value1),parseInt(value2),parseInt(value3),parseInt(value4)].sort().join(",");
             var thisGame = [NowRace*1+1,NowGameType,money,tmp];
             AllGames.push(thisGame);
@@ -74,8 +102,8 @@ function toShowGames() {
     var trs ="";
     for(var i in AllGames){
         var num = i*1+1;
-        var race = AllGames[1][0];
-        var type = AllGames[1][1];
+        var race = AllGames[i][0];
+        var type = AllGames[i][1];
         switch (type){
             case 1:
                 type = "单赢";
@@ -99,22 +127,25 @@ function toShowGames() {
                 type = "四连环";
                 break;
         }
-        var money = AllGames[1][2];
-        var info  = AllGames[1][3];
+        var money = AllGames[i][2];
+        var info  = AllGames[i][3];
         var button = "<a href='#' value='"+i+"' class='removeGame'><span class='glyphicon glyphicon-remove'></span></a>";
         var tr = "<tr><td>"+num+"</td><td>"+race+"</td><td>"+type+"</td><td>"+info+"</td><td>"+money+"</td><td>"+button+"</td></tr>";
         trs += tr;
     }
-    $("#contact tbody").html(trs);
+    $("#content tbody").html(trs);
 }
 
 $("#submiter").click(function () {
-    $.post('../template/saima/jcadmin/handleGame.php',{data:AllGames},function (data) {
-        var data = JSON.parse(data);
+    $.post('/bbs/template/saima/jcadmin/handleGame.php',{data:AllGames},function (data) {
+        var data = data.split(",")[0];
         if (data == 'ok'){
-            window.alert("下注成功！！")
+            window.alert("下注成功！！");
             AllGames = [];
             toShowGames();
+            getUserInfo();
+        }else {
+            window.alert(data)
         }
     })
 });
