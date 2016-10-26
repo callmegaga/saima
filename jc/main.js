@@ -5,6 +5,368 @@ var NowRace=0;
 var NowTime;
 var NowGameType=1;
 var AllGames=[];
+var NowPage=0;
+var NowMenuPage=0;
+
+
+$("#searchGame").click(function () {
+    var start = Date.parse(new Date($("#dt7").val()))/1000;
+    var end = Date.parse(new Date($("#dt8").val()))/1000;
+    var rid = $("#playing").val();
+    var id = $("#danhao").val();
+    var zhong = $("#zhong").val();
+    var type = $("#playing").val();
+    if(!start){
+        start = undefined;
+    }
+    if(!end){
+        end = undefined;
+    }
+    if(rid == "0"){
+        rid = undefined
+    }
+    if(id == "单号" || id == undefined){
+        id = undefined
+    }
+    if(zhong == 0){
+        zhong = undefined
+    }
+    if(zhong == 3){
+        zhong =0;
+    }
+    if(type == 0){
+        type = undefined;
+    }
+    NowPage = 0;
+    $.post("/bbs/template/saima/jc/searchGame.php",{page:NowPage,start:start,end:end,rid:rid,type:type,status:zhong,id:id},function (data) {
+        var data = JSON.parse(data);
+        var trs ="";
+        for(var i in data){
+            var id      = data[i]['id'];
+            var rid     = data[i]['rid'];
+            var type    = parseInt(data[i]['type']);
+            switch (type){
+                case 1:
+                    type = "单赢";
+                    break;
+                case 2:
+                    type = "位置";
+                    break;
+                case 3:
+                    type = "连赢";
+                    break;
+                case 4:
+                    type = "位置Q";
+                    break;
+                case 5:
+                    type = "三重彩";
+                    break;
+                case 6:
+                    type = "单T";
+                    break;
+                case 7:
+                    type = "四连环";
+                    break;
+            }
+            var info    = data[i]['info'];
+            var money   = data[i]['money'];
+            var time    = data[i]['time'];
+            var end     = data[i]['end'];
+            var get     = data[i]['get'];
+            var tr ="<tr><td>"+id+"</td><td>"+rid+"</td><td>"+type+"</td><td>"+info+"</td><td>"+money+"</td><td>"+format(time*1000)+"</td><td>"+format(end*1000).split(" ")[0]+"</td><td>"+get+"</td></tr>";
+            trs += tr;
+        }
+        $("#RecordTab tbody").html(trs);
+    })
+});
+
+
+function add0(m){return m<10?'0'+m:m }
+function format(shijianchuo)
+{
+//shijianchuo是整数，否则要parseInt转换
+    var time = new Date(shijianchuo);
+    var y = time.getFullYear();
+    var m = time.getMonth()+1;
+    var d = time.getDate();
+    var h = time.getHours();
+    var mm = time.getMinutes();
+    var s = time.getSeconds();
+    return y+'-'+add0(m)+'-'+add0(d)+' '+add0(h)+':'+add0(mm)+':'+add0(s);
+}
+function prevMenu() {
+    if(NowMenuPage > 1){
+        NowMenuPage--;
+        var trs ="";
+        for(var i=NowMenuPage*11-1;i<(NowMenuPage+1)*11-1;i++){
+            var num = i*1+1;
+            var race = AllGames[i][0];
+            var type = AllGames[i][1];
+            switch (type){
+                case 1:
+                    type = "单赢";
+                    break;
+                case 2:
+                    type = "位置";
+                    break;
+                case 3:
+                    type = "连赢";
+                    break;
+                case 4:
+                    type = "位置Q";
+                    break;
+                case 5:
+                    type = "三重彩";
+                    break;
+                case 6:
+                    type = "单T";
+                    break;
+                case 7:
+                    type = "四连环";
+                    break;
+            }
+            var money = AllGames[i][2];
+            var info  = AllGames[i][3];
+            var button = "<a href='#' onclick=removeGame('"+i+"')><span class='glyphicon glyphicon-remove'>删除</span></a>";
+            var tr = "<tr><td>"+num+"</td><td>"+race+"</td><td>"+type+"</td><td>"+info+"</td><td>"+money+"</td><td>"+button+"</td></tr>";
+            trs += tr;
+        }
+        $("#content tbody").html(trs);
+        $("#pp6").html("当前第"+(NowMenuPage*1+1)+"页&nbsp;共"+(NowMenuPage*1+1)+"页");
+    }else {
+        NowMenuPage=0;
+        var trs ="";
+        for(var i=0;i<10;i++){
+            var num = i*1+1;
+            var race = AllGames[i][0];
+            var type = AllGames[i][1];
+            switch (type){
+                case 1:
+                    type = "单赢";
+                    break;
+                case 2:
+                    type = "位置";
+                    break;
+                case 3:
+                    type = "连赢";
+                    break;
+                case 4:
+                    type = "位置Q";
+                    break;
+                case 5:
+                    type = "三重彩";
+                    break;
+                case 6:
+                    type = "单T";
+                    break;
+                case 7:
+                    type = "四连环";
+                    break;
+            }
+            var money = AllGames[i][2];
+            var info  = AllGames[i][3];
+            var button = "<a href='#' onclick=removeGame('"+i+"')><span class='glyphicon glyphicon-remove'>删除</span></a>";
+            var tr = "<tr><td>"+num+"</td><td>"+race+"</td><td>"+type+"</td><td>"+info+"</td><td>"+money+"</td><td>"+button+"</td></tr>";
+            trs += tr;
+        }
+        $("#content tbody").html(trs);
+        $("#pp6").html("当前第"+(NowMenuPage*1+1)+"页&nbsp;共"+(NowMenuPage*1+1)+"页");
+    }
+}
+function nextMenu() {
+    if(NowMenuPage != parseInt(AllGames.length/11)){
+        NowMenuPage++;
+        var trs ="";
+        for(var i=NowMenuPage*11-1;i<(NowMenuPage+1)*11-1;i++){
+            if(i<AllGames.length){
+                var num = i*1+1;
+                var race = AllGames[i][0];
+                var type = AllGames[i][1];
+                switch (type){
+                    case 1:
+                        type = "单赢";
+                        break;
+                    case 2:
+                        type = "位置";
+                        break;
+                    case 3:
+                        type = "连赢";
+                        break;
+                    case 4:
+                        type = "位置Q";
+                        break;
+                    case 5:
+                        type = "三重彩";
+                        break;
+                    case 6:
+                        type = "单T";
+                        break;
+                    case 7:
+                        type = "四连环";
+                        break;
+                }
+                var money = AllGames[i][2];
+                var info  = AllGames[i][3];
+                var button = "<a href='#' onclick=removeGame('"+i+"')><span class='glyphicon glyphicon-remove'>删除</span></a>";
+                var tr = "<tr><td>"+num+"</td><td>"+race+"</td><td>"+type+"</td><td>"+info+"</td><td>"+money+"</td><td>"+button+"</td></tr>";
+                trs += tr;
+            }
+        }
+        $("#content tbody").html(trs);
+        $("#pp6").html("当前第"+(NowMenuPage*1+1)+"页&nbsp;共"+(NowMenuPage*1+1)+"页");
+    }
+}
+function prevPage() {
+    if(NowPage>=1){
+        NowPage--;
+        var start = Date.parse(new Date($("#dt7").val()))/1000;
+        var end = Date.parse(new Date($("#dt8").val()))/1000;
+        var rid = $("#playing").val();
+        var id = $("#danhao").val();
+        var zhong = $("#zhong").val();
+        var type = $("#playing").val();
+        if(!start){
+            start = undefined;
+        }
+        if(!end){
+            end = undefined;
+        }
+        if(rid == "0"){
+            rid = undefined
+        }
+        if(id == "单号" || id == undefined){
+            id = undefined
+        }
+        if(zhong == 0){
+            zhong = undefined
+        }
+        if(zhong == 3){
+            zhong =0;
+        }
+        if(type == 0){
+            type = undefined;
+        }
+        $.post("/bbs/template/saima/jc/searchGame.php",{page:NowPage*1+1,start:start,end:end,rid:rid,type:type,status:zhong,id:id},function (data) {
+            var data = JSON.parse(data);
+            var trs ="";
+            for(var i in data){
+                var id      = data[i]['id'];
+                var rid     = data[i]['rid'];
+                var type    = parseInt(data[i]['type']);
+                switch (type){
+                    case 1:
+                        type = "单赢";
+                        break;
+                    case 2:
+                        type = "位置";
+                        break;
+                    case 3:
+                        type = "连赢";
+                        break;
+                    case 4:
+                        type = "位置Q";
+                        break;
+                    case 5:
+                        type = "三重彩";
+                        break;
+                    case 6:
+                        type = "单T";
+                        break;
+                    case 7:
+                        type = "四连环";
+                        break;
+                }
+                var info    = data[i]['info'];
+                var money   = data[i]['money'];
+                var time    = data[i]['time'];
+                var end     = data[i]['end'];
+                var get     = data[i]['get'];
+                var tr ="<tr><td>"+id+"</td><td>"+rid+"</td><td>"+type+"</td><td>"+info+"</td><td>"+money+"</td><td>"+format(time*1000)+"</td><td>"+format(end*1000).split(" ")[0]+"</td><td>"+get+"</td></tr>";
+                trs += tr;
+            }
+            $("#RecordTab tbody").html(trs);
+        })
+    }
+    else {
+        window.alert("已是第一页")
+    }
+}
+
+function nextPage() {
+    var start = Date.parse(new Date($("#dt7").val()))/1000;
+    var end = Date.parse(new Date($("#dt8").val()))/1000;
+    var rid = $("#playing").val();
+    var id = $("#danhao").val();
+    var zhong = $("#zhong").val();
+    var type = $("#playing").val();
+    if(!start){
+        start = undefined;
+    }
+    if(!end){
+        end = undefined;
+    }
+    if(rid == "0"){
+        rid = undefined
+    }
+    if(id == "单号" || id == undefined){
+        id = undefined
+    }
+    if(zhong == 0){
+        zhong = undefined
+    }
+    if(zhong == 3){
+        zhong =0;
+    }
+    if(type == 0){
+        type = undefined;
+    }
+    $.post("/bbs/template/saima/jc/searchGame.php",{page:NowPage*1+1,start:start,end:end,rid:rid,type:type,status:zhong,id:id},function (data) {
+        var data = JSON.parse(data);
+        if(data.length>0){
+            NowPage++;
+            var trs ="";
+            for(var i in data){
+                var id      = data[i]['id'];
+                var rid     = data[i]['rid'];
+                var type    = parseInt(data[i]['type']);
+                switch (type){
+                    case 1:
+                        type = "单赢";
+                        break;
+                    case 2:
+                        type = "位置";
+                        break;
+                    case 3:
+                        type = "连赢";
+                        break;
+                    case 4:
+                        type = "位置Q";
+                        break;
+                    case 5:
+                        type = "三重彩";
+                        break;
+                    case 6:
+                        type = "单T";
+                        break;
+                    case 7:
+                        type = "四连环";
+                        break;
+                }
+                var info    = data[i]['info'];
+                var money   = data[i]['money'];
+                var time    = data[i]['time'];
+                var end     = data[i]['end'];
+                var get     = data[i]['get'];
+                var tr ="<tr><td>"+id+"</td><td>"+rid+"</td><td>"+type+"</td><td>"+info+"</td><td>"+money+"</td><td>"+format(time*1000)+"</td><td>"+format(end*1000).split(" ")[0]+"</td><td>"+get+"</td></tr>";
+                trs += tr;
+            }
+            $("#RecordTab tbody").html(trs);
+        }
+        else {
+            window.alert("已是最后一页")
+        }
+    })
+}
 
 $("#add2").click(function () {
     for (var i in $("input[name=q1]")){
@@ -100,40 +462,81 @@ $("#add2").click(function () {
 
 function toShowGames() {
     var trs ="";
-    for(var i in AllGames){
-        var num = i*1+1;
-        var race = AllGames[i][0];
-        var type = AllGames[i][1];
-        switch (type){
-            case 1:
-                type = "单赢";
-                break;
-            case 2:
-                type = "位置";
-                break;
-            case 3:
-                type = "连赢";
-                break;
-            case 4:
-                type = "位置Q";
-                break;
-            case 5:
-                type = "三重彩";
-                break;
-            case 6:
-                type = "单T";
-                break;
-            case 7:
-                type = "四连环";
-                break;
+    if(AllGames.length>10){
+        NowMenuPage = parseInt(AllGames.length/11);
+        for(var i=NowMenuPage*11-1;i<AllGames.length;i++){
+            var num = i*1+1;
+            var race = AllGames[i][0];
+            var type = AllGames[i][1];
+            switch (type){
+                case 1:
+                    type = "单赢";
+                    break;
+                case 2:
+                    type = "位置";
+                    break;
+                case 3:
+                    type = "连赢";
+                    break;
+                case 4:
+                    type = "位置Q";
+                    break;
+                case 5:
+                    type = "三重彩";
+                    break;
+                case 6:
+                    type = "单T";
+                    break;
+                case 7:
+                    type = "四连环";
+                    break;
+            }
+            var money = AllGames[i][2];
+            var info  = AllGames[i][3];
+            var button = "<a href='#' onclick=removeGame('"+i+"')><span class='glyphicon glyphicon-remove'>删除</span></a>";
+            var tr = "<tr><td>"+num+"</td><td>"+race+"</td><td>"+type+"</td><td>"+info+"</td><td>"+money+"</td><td>"+button+"</td></tr>";
+            trs += tr;
         }
-        var money = AllGames[i][2];
-        var info  = AllGames[i][3];
-        var button = "<a href='#' value='"+i+"' class='removeGame'><span class='glyphicon glyphicon-remove'></span></a>";
-        var tr = "<tr><td>"+num+"</td><td>"+race+"</td><td>"+type+"</td><td>"+info+"</td><td>"+money+"</td><td>"+button+"</td></tr>";
-        trs += tr;
+        $("#content tbody").html(trs);
+        $("#pp6").html("当前第"+(NowMenuPage*1+1)+"页&nbsp;共"+(NowMenuPage*1+1)+"页");
+        console.log(i)
+    }else {
+        for(var i in AllGames){
+            var num = i*1+1;
+            var race = AllGames[i][0];
+            var type = AllGames[i][1];
+            switch (type){
+                case 1:
+                    type = "单赢";
+                    break;
+                case 2:
+                    type = "位置";
+                    break;
+                case 3:
+                    type = "连赢";
+                    break;
+                case 4:
+                    type = "位置Q";
+                    break;
+                case 5:
+                    type = "三重彩";
+                    break;
+                case 6:
+                    type = "单T";
+                    break;
+                case 7:
+                    type = "四连环";
+                    break;
+            }
+            var money = AllGames[i][2];
+            var info  = AllGames[i][3];
+            var button = "<a href='#' onclick=removeGame('"+i+"')><span class='glyphicon glyphicon-remove'>删除</span></a>";
+            var tr = "<tr><td>"+num+"</td><td>"+race+"</td><td>"+type+"</td><td>"+info+"</td><td>"+money+"</td><td>"+button+"</td></tr>";
+            trs += tr;
+        }
+        $("#content tbody").html(trs);
+        $("#pp6").html("当前第1页&nbsp;共1页");
     }
-    $("#content tbody").html(trs);
 }
 
 $("#submiter").click(function () {
@@ -149,14 +552,10 @@ $("#submiter").click(function () {
         }
     })
 });
-
-$(".removeGame").on("click",function () {
-    console.log(this.value)
-});
-
-$("#showThemenu").mouseover(function () {
-    $("#accordion_element_71935").toggle(200)
-});
+function removeGame(i) {
+    AllGames.splice(i,1);
+    toShowGames();
+}
 
 $("#menu1").click(function () {
     $("#wanfatitle").html("独赢");
@@ -176,7 +575,9 @@ $("#menu1").click(function () {
     for(var i in $(".detailContainer input")){
         $(".detailContainer input")[i].checked = false
     }
-    NowGameType=1
+    NowGameType=1;
+    $("#xuanhaospan2").show();
+    $("#Record").hide();
 });
 
 $("#menu2").click(function () {
@@ -197,7 +598,9 @@ $("#menu2").click(function () {
     for(var i in $(".detailContainer input")){
         $(".detailContainer input")[i].checked = false
     }
-    NowGameType=2
+    NowGameType=2;
+    $("#xuanhaospan2").show();
+    $("#Record").hide();
 });
 
 $("#menu3").click(function () {
@@ -219,7 +622,9 @@ $("#menu3").click(function () {
     for(var i in $(".detailContainer input")){
         $(".detailContainer input")[i].checked = false
     }
-    NowGameType=3
+    NowGameType=3;
+    $("#xuanhaospan2").show();
+    $("#Record").hide();
 });
 
 $("#menu4").click(function () {
@@ -241,7 +646,9 @@ $("#menu4").click(function () {
     for(var i in $(".detailContainer input")){
         $(".detailContainer input")[i].checked = false
     }
-    NowGameType=4
+    NowGameType=4;
+    $("#xuanhaospan2").show();
+    $("#Record").hide();
 });
 
 $("#menu5").click(function () {
@@ -264,7 +671,9 @@ $("#menu5").click(function () {
     for(var i in $(".detailContainer input")){
         $(".detailContainer input")[i].checked = false
     }
-    NowGameType=5
+    NowGameType=5;
+    $("#xuanhaospan2").show();
+    $("#Record").hide();
 });
 
 $("#menu6").click(function () {
@@ -287,7 +696,9 @@ $("#menu6").click(function () {
     for(var i in $(".detailContainer input")){
         $(".detailContainer input")[i].checked = false
     }
-    NowGameType=6
+    NowGameType=6;
+    $("#xuanhaospan2").show();
+    $("#Record").hide();
 });
 
 $("#menu7").click(function () {
@@ -311,9 +722,18 @@ $("#menu7").click(function () {
     for(var i in $(".detailContainer input")){
         $(".detailContainer input")[i].checked = false
     }
-    NowGameType=7
+    NowGameType=7;
+    $("#xuanhaospan2").show();
+    $("#Record").hide();
 });
 
+$("#menu8").click(function () {
+    $("div[name=menuelement]").removeClass("this");
+    $(this).addClass("this");
+    $("#xuanhaospan2").hide();
+    $("#Record").show();
+    $("#searchGame").click();
+});
 
 $("#zhushu").focus(function () {
     if($("#zhushu").val() == "输入金币"){

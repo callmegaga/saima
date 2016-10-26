@@ -36,19 +36,21 @@ foreach ($postData as $value)
         }
         try
         {
-            $credit = C::t('common_member')->fetch($_G['uid'])['credits'];
+            $credit = C::t('common_member_count')->fetch($_G['uid'])['extcredits2'];
 
             if(($credit - $money) > 0)
             {
+                $sqlData['end'] = $end;
+
                 DB::insert("common_saima_game", $sqlData);
 
-                C::t('common_member')->update($_G['uid'],array("credits" => $credit-$money));
+                C::t('common_member_count')->update($_G['uid'],array("extcredits2" => $credit-$money));
 
                 echo "ok,";
             }
             else
             {
-                echo "金币不足";
+                echo "金币不足,";
             }
 
         }

@@ -68,12 +68,14 @@ function handleType_1($rid,$type_1,$type_1_result)
     $result = DB::fetch_all("SELECT * FROM pre_common_saima_game WHERE rid='$rid' AND type=1 AND info='$type_1' AND status = 0");
     foreach ($result as $value)
     {
+        $id = $value['id'];
         $uid = $value['uid'];
         $money = $value['money'];
-        $credit = C::t('common_member')->fetch($uid)['credits'];
-        C::t('common_member')->update($uid,array("credits" => (int)($credit + $money*$type_1_result)));
+        $get = $money*$type_1_result;
+        $credit = C::t('common_member_count')->fetch($uid)['extcredits2'];
+        C::t('common_member_count')->update($uid,array("extcredits2" => (int)($credit + $money*$type_1_result)));
+        DB::query("UPDATE pre_common_saima_game SET status = 2 , get ='$get' WHERE id='$id'");
     }
-    DB::query("UPDATE pre_common_saima_game SET status = 2 WHERE rid='$rid' AND type=1 AND info='$type_1' AND status = 0");
 }
 
 //处理位置1
@@ -82,12 +84,14 @@ function handleType_2_1($rid,$type_2_1,$type_2_1_result)
     $result = DB::fetch_all("SELECT * FROM pre_common_saima_game WHERE rid='$rid' AND type=2 AND info='$type_2_1' AND status = 0");
     foreach ($result as $value)
     {
+        $id = $value['id'];
         $uid = $value['uid'];
         $money = $value['money'];
-        $credit = C::t('common_member')->fetch($uid)['credits'];
-        C::t('common_member')->update($uid,array("credits" => (int)($credit + $money*$type_2_1_result)));
+        $get = $money*$type_2_1_result;
+        $credit = C::t('common_member_count')->fetch($uid)['extcredits2'];
+        C::t('common_member_count')->update($uid,array("extcredits2" => (int)($credit + $money*$type_2_1_result)));
+        DB::query("UPDATE pre_common_saima_game SET status = 2 , get ='$get' WHERE id='$id'");
     }
-    DB::query("UPDATE pre_common_saima_game SET status = 2 WHERE rid='$rid' AND type=2 AND info='$type_2_1' AND status = 0");
 }
 //处理位置2
 function handleType_2_2($rid,$type_2_2,$type_2_2_result)
@@ -95,12 +99,14 @@ function handleType_2_2($rid,$type_2_2,$type_2_2_result)
     $result = DB::fetch_all("SELECT * FROM pre_common_saima_game WHERE rid='$rid' AND type=2 AND info='$type_2_2' AND status = 0");
     foreach ($result as $value)
     {
+        $id = $value['id'];
         $uid = $value['uid'];
         $money = $value['money'];
-        $credit = C::t('common_member')->fetch($uid)['credits'];
-        C::t('common_member')->update($uid,array("credits" => (int)($credit + $money*$type_2_2_result)));
+        $get = $money*$type_2_2_result;
+        $credit = C::t('common_member_count')->fetch($uid)['extcredits2'];
+        C::t('common_member_count')->update($uid,array("extcredits2" => (int)($credit + $money*$type_2_2_result)));
+        DB::query("UPDATE pre_common_saima_game SET status = 2 , get ='$get' WHERE id='$id'");
     }
-    DB::query("UPDATE pre_common_saima_game SET status = 2 WHERE rid='$rid' AND type=2 AND info='$type_2_2' AND status = 0");
 }
 //处理位置3
 function handleType_2_3($rid,$type_2_3,$type_2_3_result)
@@ -108,12 +114,14 @@ function handleType_2_3($rid,$type_2_3,$type_2_3_result)
     $result = DB::fetch_all("SELECT * FROM pre_common_saima_game WHERE rid='$rid' AND type=2 AND info='$type_2_3' AND status = 0");
     foreach ($result as $value)
     {
+        $id = $value['id'];
         $uid = $value['uid'];
         $money = $value['money'];
-        $credit = C::t('common_member')->fetch($uid)['credits'];
-        C::t('common_member')->update($uid,array("credits" => (int)($credit + $money*$type_2_3_result)));
+        $get = $money*$type_2_3_result;
+        $credit = C::t('common_member_count')->fetch($uid)['extcredits2'];
+        C::t('common_member_count')->update($uid,array("extcredits2" => (int)($credit + $money*$type_2_3_result)));
+        DB::query("UPDATE pre_common_saima_game SET status = 2 , get ='$get' WHERE id='$id'");
     }
-    DB::query("UPDATE pre_common_saima_game SET status = 2 WHERE rid='$rid' AND type=2 AND info='$type_2_3' AND status = 0");
 }
 
 //处理连赢
@@ -122,14 +130,15 @@ function handleType_3($rid,$type_3,$type_3_result)
     $result = DB::fetch_all("SELECT * FROM pre_common_saima_game WHERE rid='$rid' AND type=3 AND info='$type_3' AND status = 0");
     foreach ($result as $value)
     {
+        $id = $value['id'];
         $uid = $value['uid'];
         $money = $value['money'];
-        $credit = C::t('common_member')->fetch($uid)['credits'];
-        C::t('common_member')->update($uid,array("credits" => (int)($credit + $money*$type_3_result)));
+        $get = $money*$type_3_result;
+        $credit = C::t('common_member_count')->fetch($uid)['extcredits2'];
+        C::t('common_member_count')->update($uid,array("extcredits2" => (int)($credit + $money*$type_3_result)));
+        DB::query("UPDATE pre_common_saima_game SET status = 2 , get ='$get' WHERE id='$id'");
     }
-    DB::query("UPDATE pre_common_saima_game SET status = 2 WHERE rid='$rid' AND type=3 AND info='$type_3' AND status = 0");
 }
-
 
 //处理位置Q_1
 function handleType_4_1($rid,$type_4_1,$type_4_1_result)
@@ -137,12 +146,14 @@ function handleType_4_1($rid,$type_4_1,$type_4_1_result)
     $result = DB::fetch_all("SELECT * FROM pre_common_saima_game WHERE rid='$rid' AND type=4 AND info='$type_4_1' AND status = 0");
     foreach ($result as $value)
     {
+        $id = $value['id'];
         $uid = $value['uid'];
         $money = $value['money'];
-        $credit = C::t('common_member')->fetch($uid)['credits'];
-        C::t('common_member')->update($uid,array("credits" => (int)($credit + $money*$type_4_1_result)));
+        $get = $money*$type_4_1_result;
+        $credit = C::t('common_member_count')->fetch($uid)['extcredits2'];
+        C::t('common_member_count')->update($uid,array("extcredits2" => (int)($credit + $money*$type_4_1_result)));
+        DB::query("UPDATE pre_common_saima_game SET status = 2 , get ='$get' WHERE id='$id'");
     }
-    DB::query("UPDATE pre_common_saima_game SET status = 2 WHERE rid='$rid' AND type=4 AND info='$type_4_1' AND status = 0");
 }
 //处理位置Q_2
 function handleType_4_2($rid,$type_4_2,$type_4_2_result)
@@ -150,12 +161,14 @@ function handleType_4_2($rid,$type_4_2,$type_4_2_result)
     $result = DB::fetch_all("SELECT * FROM pre_common_saima_game WHERE rid='$rid' AND type=4 AND info='$type_4_2' AND status = 0");
     foreach ($result as $value)
     {
+        $id = $value['id'];
         $uid = $value['uid'];
         $money = $value['money'];
-        $credit = C::t('common_member')->fetch($uid)['credits'];
-        C::t('common_member')->update($uid,array("credits" => (int)($credit + $money*$type_4_2_result)));
+        $get = $money*$type_4_2_result;
+        $credit = C::t('common_member_count')->fetch($uid)['extcredits2'];
+        C::t('common_member_count')->update($uid,array("extcredits2" => (int)($credit + $money*$type_4_2_result)));
+        DB::query("UPDATE pre_common_saima_game SET status = 2 , get ='$get' WHERE id='$id'");
     }
-    DB::query("UPDATE pre_common_saima_game SET status = 2 WHERE rid='$rid' AND type=4 AND info='$type_4_2' AND status = 0");
 }
 //处理位置Q_3
 function handleType_4_3($rid,$type_4_3,$type_4_3_result)
@@ -163,14 +176,15 @@ function handleType_4_3($rid,$type_4_3,$type_4_3_result)
     $result = DB::fetch_all("SELECT * FROM pre_common_saima_game WHERE rid='$rid' AND type=4 AND info='$type_4_3' AND status = 0");
     foreach ($result as $value)
     {
+        $id = $value['id'];
         $uid = $value['uid'];
         $money = $value['money'];
-        $credit = C::t('common_member')->fetch($uid)['credits'];
-        C::t('common_member')->update($uid,array("credits" => (int)($credit + $money*$type_4_3_result)));
+        $get = $money*$type_4_3_result;
+        $credit = C::t('common_member_count')->fetch($uid)['extcredits2'];
+        C::t('common_member_count')->update($uid,array("extcredits2" => (int)($credit + $money*$type_4_3_result)));
+        DB::query("UPDATE pre_common_saima_game SET status = 2 , get ='$get' WHERE id='$id'");
     }
-    DB::query("UPDATE pre_common_saima_game SET status = 2 WHERE rid='$rid' AND type=4 AND info='$type_4_3' AND status = 0");
 }
-
 
 //处理三重彩
 function handleType_5($rid,$type_5,$type_5_result)
@@ -178,12 +192,14 @@ function handleType_5($rid,$type_5,$type_5_result)
     $result = DB::fetch_all("SELECT * FROM pre_common_saima_game WHERE rid='$rid' AND type=5 AND info='$type_5' AND status = 0");
     foreach ($result as $value)
     {
+        $id = $value['id'];
         $uid = $value['uid'];
         $money = $value['money'];
-        $credit = C::t('common_member')->fetch($uid)['credits'];
-        C::t('common_member')->update($uid,array("credits" => (int)($credit + $money*$type_5_result)));
+        $get = $money*$type_5_result;
+        $credit = C::t('common_member_count')->fetch($uid)['extcredits2'];
+        C::t('common_member_count')->update($uid,array("extcredits2" => (int)($credit + $money*$type_5_result)));
+        DB::query("UPDATE pre_common_saima_game SET status = 2 , get ='$get' WHERE id='$id'");
     }
-    DB::query("UPDATE pre_common_saima_game SET status = 2 WHERE rid='$rid' AND type=5 AND info='$type_5' AND status = 0");
 }
 
 //处理单T
@@ -192,12 +208,14 @@ function handleType_6($rid,$type_6,$type_6_result)
     $result = DB::fetch_all("SELECT * FROM pre_common_saima_game WHERE rid='$rid' AND type=6 AND info='$type_6' AND status = 0");
     foreach ($result as $value)
     {
+        $id = $value['id'];
         $uid = $value['uid'];
         $money = $value['money'];
-        $credit = C::t('common_member')->fetch($uid)['credits'];
-        C::t('common_member')->update($uid,array("credits" => (int)($credit + $money*$type_6_result)));
+        $get = $money*$type_6_result;
+        $credit = C::t('common_member_count')->fetch($uid)['extcredits2'];
+        C::t('common_member_count')->update($uid,array("extcredits2" => (int)($credit + $money*$type_6_result)));
+        DB::query("UPDATE pre_common_saima_game SET status = 2 , get ='$get' WHERE id='$id'");
     }
-    DB::query("UPDATE pre_common_saima_game SET status = 2 WHERE rid='$rid' AND type=6 AND info='$type_6' AND status = 0");
 }
 
 //处理四连环
@@ -206,12 +224,14 @@ function handleType_7($rid,$type_7,$type_7_result)
     $result = DB::fetch_all("SELECT * FROM pre_common_saima_game WHERE rid='$rid' AND type=7 AND info='$type_7' AND status = 0");
     foreach ($result as $value)
     {
+        $id = $value['id'];
         $uid = $value['uid'];
         $money = $value['money'];
-        $credit = C::t('common_member')->fetch($uid)['credits'];
-        C::t('common_member')->update($uid,array("credits" => (int)($credit + $money*$type_7_result)));
+        $get = $money*$type_7_result;
+        $credit = C::t('common_member_count')->fetch($uid)['extcredits2'];
+        C::t('common_member_count')->update($uid,array("extcredits2" => (int)($credit + $money*$type_7_result)));
+        DB::query("UPDATE pre_common_saima_game SET status = 2 , get ='$get' WHERE id='$id'");
     }
-    DB::query("UPDATE pre_common_saima_game SET status = 2 WHERE rid='$rid' AND type=7 AND info='$type_7' AND status = 0");
 }
 
 echo  "ok";

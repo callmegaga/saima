@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>去赛马吧</title>
+    <title>香港赛马</title>
     <link href="/bbs/template/saima/jc/css/main.css" rel="stylesheet">
 </head>
-
-
 
 <body>
 <div class="hpic"><img src="/bbs/template/saima/jc/img/bg3331.png" /></div>
@@ -32,7 +30,7 @@
                     <div class="accordion" id="accordion-555736">
                         <div class="accordion-group">
                             <div class="accordion-inner" href="#accordion-element-71935" id="showThemenu">投注竞猜</div>
-                            <div id="accordion_element_71935" style="display:none">
+                            <div id="accordion_element_71935">
                                 <div id=menu1 class="accordion-inner" name="menuelement" >
                                     独赢
                                 </div>
@@ -58,10 +56,6 @@
                         </div>
                         <div>
                             <div id="menu8" class="accordion-inner" name="menuelement" >投注记录</div>
-                            <div id="menu9" class="accordion-inner" name="menuelement" data-toggle="modal" href="#huikouModal">投注回扣</div>
-                            <div id="menu10" class="accordion-inner" name="menuelement" data-toggle="modal" href="#huikouModal">推广下线</div>
-                            <div id="menu11" class="accordion-inner" name="menuelement" data-toggle="modal" href="#huikouModal">帐户变动</div>
-                            <div id="menu12" class="accordion-inner" >关于游戏</div>
                         </div>
                     </div>
                 </div>
@@ -70,6 +64,7 @@
 
             <div class="span10 right" >
 
+                <!--下注菜单-->
                 <div id="xuanhaospan2">
                     <div class="row-fluid">
                         <div class="span8" id=lay23>
@@ -492,8 +487,8 @@
                                     <!--待提交的下注分页-->
                                     <table width="100%" id="pagetab2">
                                         <tr>
-                                            <td width="35%" height="38" align="center" valign="middle"><img src="/bbs/template/saima/jc/img/prev-1.png" style="cursor:pointer"/></td>
-                                            <td width="65%" align="left" valign="middle"><img src="/bbs/template/saima/jc/img/next-1.png" style="cursor:pointer"/></td>
+                                            <td width="35%" height="38" align="center" valign="middle" onclick="prevMenu()"><img src="/bbs/template/saima/jc/img/prev-1.png" style="cursor:pointer"/></td>
+                                            <td width="65%" align="left" valign="middle" onclick="nextMenu()"><img src="/bbs/template/saima/jc/img/next-1.png" style="cursor:pointer"/></td>
                                         </tr>
                                         <tr>
                                             <td width="373" height="26" colspan="3" id="pp6">当前第1页&nbsp;共1页</td>
@@ -508,59 +503,6 @@
                         </div>
                     </div><a name="axx"></a>
                     <p></p>
-                </div>
-
-                <!--帮助-->
-                <div class="other" id="help" style="display:none">
-                    <div class="odt"></div>
-                    <div class="obox">
-                        <div class="obox2">
-
-                            <div>
-                                <img style="cursor:pointer" id="help1img" width="116" height="37" src="/bbs/template/saima/jc/img/help1.gif" /><img style="cursor:pointer" id="help2img" width="116" height="37" src="/bbs/template/saima/jc/img/help2W.gif"/><img style="cursor:pointer" id="help3img" width="116" height="37" src="/bbs/template/saima/jc/img/help3W.gif" />
-                            </div>
-                            <div class="cbox">
-                            </div>
-                            <div class="cbt"></div>
-                        </div>
-                    </div>
-                    <div class="obt"></div>
-                </div>
-                <!--投注回扣-->
-                <div class="other" id="xuanhaospan3" style="display:none">
-                    <div class="odt"></div>
-                    <div class="obox">
-                        <div class="obox2">
-                            <div class="cdt"></div>
-                            <div class="cbox">
-                                <div style="border:#ea9954 solid 1px; border-top:#e9bd15 solid 1px; text-align:center"> <!-- class="row-fluid"  -->
-                                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="grid" id='contentZK' style="border-collapse:collapse">
-                                        <tbody>
-                                        <tr style="height:26px; line-height:26px; color:#212121; background:url(/bbs/template/saima/jc/img/bg-31.jpg) repeat-x; font-size:14px; font-weight:bold">
-                                            <td width="151"><div align="center"><strong>比赛日期</strong></div></td>
-                                            <td width="151"><div align="center"><strong>投注总额</strong></div></td>
-                                            <td width="78"><div align="center"><strong>回扣</strong></div></td>
-                                            <td width="94"><div align="center"><strong>状态</strong></div></td>
-                                            <td width="196"><div align="center"><strong>返回时间</strong></div></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="cbt"></div>
-                            <!-- <div class="page"> -->
-                            <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="border-collapse:collapse" id='contentZK2' >
-                                <tr id='pagetabZK'>
-                                    <td width="317" height="43" style="padding-top:7px;" align="right" valign="middle">
-                                        <img src='/bbs/template/saima/jc/img/prev-1.png' style="cursor:pointer" onclick="prevZK()" />&nbsp;&nbsp;&nbsp;&nbsp;<img src='/bbs/template/saima/jc/img/next-1.png' style="cursor:pointer" onclick="nextZK()" />
-                                    </td>
-                                    <td width="373" height="50" valign="middle">&nbsp;&nbsp;&nbsp;&nbsp;<span id=pp7 class="page">当前第1页&nbsp;共1页</span></td>
-                                </tr>
-                            </table>
-                            <!-- </div> -->
-                        </div>
-                    </div>
-                    <div class="obt"></div>
                 </div>
 
                 <!--记录-->
@@ -578,19 +520,24 @@
                                                 <td colspan="8">
                                                     <table  border="0" cellpadding="0" cellspacing="0">
                                                         <tr>
-                                                            <td width="29"><input name="rad" type="radio" style="width:14px" value="1" checked="checked" />从</td>
+                                                            <td width="29">从</td>
                                                             <td width="199">
-                                                                <input id="dt7" style="width:70px;cursor:pointer" onclick="SelectDate(this,'yyyy-M-d',0,0)" size="10" maxlength="10" readonly /> 到 <input id="dt8" style="width:70px;cursor:pointer" onclick="SelectDate(this,'yyyy-M-d',0,0)" size="6" maxlength="10" readonly />
+                                                                <input id="dt7" type="date" style="width:80px">到<input id="dt8" type="date" style="width:80px"/>
                                                             </td>
-                                                            <td width="95">
-                                                                <input type="radio" name="rad" value="3" style="width:14px" />
-                                                                <select name="doing" id="doing" style="width:63px" onclick="change(rad,3)">
-                                                                    <option value="1" selected="selected">进行中</option>
-                                                                    <option value="2">已结束</option>
-                                                                </select></td>
-                                                            <td width="93"><input type="radio" name="rad" value="4" style="width:14px" />
-                                                                <select name="playing" id="playing" style="width:60px"  onclick="change(rad,4)">
-                                                                    <option value="1" selected="selected">独赢</option>
+                                                            <td width="91">
+                                                                状态
+                                                                <select name="zhong" id="zhong" style="width:63px;">
+                                                                    <option value="0" selected="selected">全部</option>
+                                                                    <option value="3" >未开奖</option>
+                                                                    <option value="1" >已中奖</option>
+                                                                    <option value="2">未中奖</option>
+                                                                </select>
+                                                            </td>
+                                                            <td width="93">
+                                                                场次
+                                                                <select name="playing" id="playing" style="width:60px">
+                                                                    <option value="0" selected="selected">全部</option>
+                                                                    <option value="1">独赢</option>
                                                                     <option value="2">位置</option>
                                                                     <option value="3">连赢</option>
                                                                     <option value="4">位置Q</option>
@@ -598,14 +545,10 @@
                                                                     <option value="6">单T</option>
                                                                     <option value="7">四连环</option>
                                                                 </select></td>
-                                                            <td width="91"><input type="radio" name="rad" value="2" style="width:14px" />
-                                                                <select name="zhong" id="zhong" style="width:63px;"  onclick="change(rad,2)" >
-                                                                    <option value="1" selected="selected">已中奖</option>
-                                                                    <option value="2">未中奖</option>
-                                                                </select></td>
-                                                            <td width="93"><input type="radio" name="rad" value="5" style="width:14px" />
-                                                                <input name="Input" id="danhao" style="width:50px" onfocus="this.value=''"  onclick="change(rad,5)" value="单号" maxlength="10" /></td>
-                                                            <td width="72"><img src="/bbs/template/saima/jc/img/search.png" style="cursor:pointer" /></td>
+                                                            <td width="93">
+                                                                单号
+                                                                <input name="Input" id="danhao" style="width:50px" onfocus="this.value=''"  value="单号" maxlength="10"/></td>
+                                                            <td width="72"><img id="searchGame" src="/bbs/template/saima/jc/img/search.png" style="cursor:pointer" /></td>
                                                         </tr>
                                                     </table></td>
                                             </tr>
@@ -640,66 +583,14 @@
                             <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" id='RecordTab2' style="border-collapse:collapse" >
                                 <tr >
                                     <td width="320" height="43" style="padding-top:7px;" align="right" valign="middle">
-                                        <img src='/bbs/template/saima/jc/img/prev-1.png' style="cursor:pointer" onclick="prevRec()" />&nbsp;&nbsp;&nbsp;&nbsp;<img src='/bbs/template/saima/jc/img/next-1.png' style="cursor:pointer" onclick="nextRec()" />
+                                        <img src='/bbs/template/saima/jc/img/prev-1.png' style="cursor:pointer" onclick="prevPage()" />&nbsp;&nbsp;&nbsp;&nbsp;<img src='/bbs/template/saima/jc/img/next-1.png' style="cursor:pointer" onclick="nextPage()" />
                                     </td>
-                                    <td width="373">&nbsp;&nbsp;&nbsp;&nbsp;<span id=pp8 class="page">当前第1页&nbsp;共1页</span></td>
                                 </tr>
                             </table>
                             <!-- </div> -->
                         </div>
                     </div>
                     <div class="obt"></div>
-                </div>
-
-                <!--推广下线-->
-                <div id="line" class="other" style="display:none" >
-                    <div class="odt"></div>
-                    <div class="obox">
-                        <div class="obox2">
-                            <div class="cdt"></div>
-                            <div class="cbox">
-                                <div style="border:#ea9954 solid 1px; border-top:#e9bd15 solid 1px">
-                                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="grid" id='contentYJ' style="border-collapse:collapse">
-                                        <thead>
-                                        <tr style="height:26px; line-height:26px; color:#212121; background:url(/bbs/template/saima/jc/img/bg-31.jpg) repeat-x; font-size:14px; font-weight:bold">
-                                            <td width="30"><div align="center"><strong>序号</strong></div></td>
-                                            <td width="120"><div align="center"><strong>用户</strong></div></td>
-                                            <td width="66"><div align="center"><strong>投注总额</strong></div></td>
-                                            <td width="45"><div align="center"><strong>抽佣</strong></div></td>
-                                            <td width="45"><div align="center"><strong>状态</strong></div></td>
-                                            <td width="150"><div align="center"><strong>返回时间</strong></div></td>
-                                            <td width="150"><div align="center"><strong>最近投注时间</strong></div></td>
-                                        </tr>
-                                        <tr id='nodata2' style="display:none;"><td colspan="8" align="center">没有满足条件的记录</td>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                    <p><p><p>
-                                </div>
-                            </div>
-                            <div class="cbt"></div>
-                            <!--  <div class="page" id='pagetabYJ' style="display:none"> -->
-                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse" id='pageTabYJ' >
-                                <tr >
-                                    <td width="320" height="43" style="padding-top:7px;" align="right" valign="middle">
-                                        <img src='/bbs/template/saima/jc/img/prev-1.png' style="cursor:pointer" onclick="prevYJ()" />&nbsp;&nbsp;&nbsp;&nbsp;<img src='/bbs/template/saima/jc/img/next-1.png' style="cursor:pointer" onclick="nextYJ()" />
-                                    </td>
-                                    <td width="373">&nbsp;&nbsp;&nbsp;&nbsp;<span id=pp9 class="page">当前第1页&nbsp;共1页</span></td>
-                                </tr>
-                            </table>
-                            <!--  </div> -->
-                        </div>
-                    </div>
-                    <div class="obt"></div>
-                    <p><p><p>
-                </div>
-                <!--推广下线-->
-
-                <!--帐户变动-->
-                <div id='accLay' style="display:none" >
-                    <iframe id="accFram" src="account.php" height="463px" width="100%" scrolling="no" frameborder="0"></iframe>
                 </div>
 
             </div>
@@ -711,16 +602,16 @@
 
     <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:15px; color:gray">
         <tr>
-            <td  align="center"><a href="http://racing.hkjc.com/racing/Info/meeting/Results/chinese/Local/" target="_blank" >赛果派彩</a> | <a href="http://racing.hkjc.com/racing/Info/meeting/RaceCard/chinese/" target="_blank"  >最新赛事</a>  | <a href="http://www.saima8.com/plugin.php?id=xnx3_shop:list&type=1" target="_blank" >金币换礼</a> | <a href="http://www.baidu.com" target="_blank" >游戏活动</a> | <a href="http://www.baidu.com" target="_blank"  >常见问题</a> | <a href="http://www.saima8.com/" target="_blank"  >返回论坛</a></td>
+            <td  align="center"><a href="http://racing.hkjc.com/racing/Info/meeting/Results/chinese/Local/" target="_blank" >赛果派彩</a> | <a href="http://racing.hkjc.com/racing/Info/meeting/RaceCard/chinese/" target="_blank"  >最新赛事</a>  | <a href="#" target="_blank" >金币换礼</a> | <a href="#" target="_blank" >游戏活动</a> | <a href="#" target="_blank"  >常见问题</a> | <a href="http://118.193.168.206/forum.php" target="_blank"  >返回论坛</a></td>
         </tr>
         <tr>
-            <td  align="center">Copyright &copy; 赛马吧Reserved版权所有</td>
+            <td  align="center">Copyright &copy; 香港赛马Reserved版权所有</td>
         </tr>
         <tr>
             <td  align="center">理性休闲竞猜 切勿沉迷游戏</td>
         </tr>
         <tr>
-            <td  align="center">邮箱：saima8@qq.com&nbsp;&nbsp;<img style="cursor:pointer" name="" src="/bbs/template/saima/jc/img/qqimg.JPG" width="72" height="24" onclick="javascript:location.href='tencent://message/?uin=88011032&amp;Site=Sambow&amp;Menu=yes';" />&nbsp;欢迎提出宝贵意见</td>
+            <td  align="center">邮箱：419251658@qq.com&nbsp;&nbsp;<img style="cursor:pointer" name="" src="/bbs/template/saima/jc/img/qqimg.JPG" width="72" height="24" onclick="javascript:location.href='tencent://message/?uin=419251658&amp;Site=Sambow&amp;Menu=yes';" />&nbsp;欢迎提出宝贵意见</td>
         </tr>
     </table>
 
