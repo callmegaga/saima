@@ -288,7 +288,7 @@ function getHistory() {
     $.post("/bbs/template/saima/jc/searchGame.php",{page:NowPage},function (data) {
         var data = JSON.parse(data);
         var trs ="";
-        if(data.length == 0){
+        if((data.length == 0) && (NowPage != 0)){
             window.alert("已经没有更多的竞猜记录")
         };
         for(var i in data){
@@ -386,9 +386,13 @@ function getNowTime() {
         NowTime = data;
         if(NowTime[NowRace]>0){
             var string = "截止:"+parseInt(NowTime[NowRace]/86400) + "天" + parseInt(NowTime[NowRace]%86400/3600) +"时"+parseInt(NowTime[NowRace]%86400%3600/60) +"分"+parseInt(NowTime[NowRace]%86400%3600%60) +"秒";
-            $(".end_time").html(string)
+            $(".end_time").html(string);
+            $("#game_money").attr("disabled",false);
+            $("#first_submit").attr("disabled",false);
         }else {
-            $(".end_time").html("竞猜已经截止")
+            $(".end_time").html("竞猜已经截止");
+            $("#game_money").attr("disabled",true);
+            $("#first_submit").attr("disabled",true)
         }
     })
 }
