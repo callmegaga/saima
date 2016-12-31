@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>香港赛马</title>
+    <link href="/bbs/template/saima/jc_m/main.css" rel="stylesheet">
+</head>
+<body>
+<div class="header">
+    <div class="logo"></div>
+    <div class="user_info"></div>
+    <div class="money_num"></div>
+</div>
+<div class="menu">
+    <div class="menu_item menu_add_race active">下注竞猜</div>
+    <div class="menu_item menu_history">下注记录</div>
+</div>
+
+<div class="add_race_content">
+    <div class="race_num">
+        <div class="race_num_item chooseRace active" data-num="1">1</div>
+        <div class="race_num_item chooseRace" data-num="2">2</div>
+        <div class="race_num_item chooseRace" data-num="3">3</div>
+        <div class="race_num_item chooseRace" data-num="4">4</div>
+        <div class="race_num_item chooseRace" data-num="5">5</div>
+        <div class="race_num_item chooseRace" data-num="6">6</div>
+        <div class="race_num_item chooseRace" data-num="7">7</div>
+        <div class="race_num_item chooseRace" data-num="8">8</div>
+        <div class="race_num_item chooseRace" data-num="9">9</div>
+        <div class="race_num_item chooseRace" data-num="10">10</div>
+        <div class="race_num_item chooseRace" data-num="11">11</div>
+    </div>
+    <div class="race_info">
+        <div class="race_info_type">
+            <select id="select_game_type">
+                <option value="1">独赢</option>
+                <option value="2">位置</option>
+                <option value="3">连赢</option>
+                <option value="4">位置Q</option>
+                <option value="5">三重彩</option>
+                <option value="6">单T</option>
+                <option value="7">四连环</option>
+            </select>
+        </div>
+        <div class="race_info_detail">
+            第1场,2017年1月1日,星期天,沙田,12：30
+        </div>
+    </div>
+    <div class="race_content">
+        <table class="race_content_table">
+            <tr><th>序号</th><th>马名</th><th id="head1">第一</th><th id="head2" style="display:none;"></th><th id="head3" style="display:none;"></th><th id="head4" style="display:none;"></th></tr>
+            <tr id="Rrname1" class="detailContainer" style="display:none;">
+                <td>1</td>
+                <td id="name1">大发明家</td>
+                <td name="t1">
+                    <input type="radio" name="q1" value="1">
+                </td>
+                <td name="t2">
+                    <input type="radio" name="q2" value="1">
+                </td>
+                <td name="t3">
+                    <input type="radio" name="q3" value="1">
+                </td>
+                <td name="t4">
+                    <input type="radio" name="q4" value="1">
+                </td>
+            </tr>
+
+            <tr id="Rrname2" class="detailContainer" style="display:none;">
+                <td>2</td>
+                <td id="name2">大发明家</td>
+                <td name="t1">
+                    <input type="radio" name="q1" value="2">
+                </td>
+                <td name="t2">
+                    <input type="radio" name="q2" value="2">
+                </td>
+                <td name="t3">
+                    <input type="radio" name="q3" value="2">
+                </td>
+                <td name="t4">
+                    <input type="radio" name="q4" value="2">
+                </td>
+            </tr>
+
+            <tr id="Rrname3" class="detailContainer" style="display:none;">
+                <td>3</td>
+                <td id="name3">大发明家</td>
+                <td name="t1">
+                    <input type="radio" name="q1" value="3">
+                </td>
+                <td name="t2">
+                    <input type="radio" name="q2" value="3">
+                </td>
+                <td name="t3">
+                    <input type="radio" name="q3" value="3">
+                </td>
+                <td name="t4">
+                    <input type="radio" name="q4" value="3">
+                </td>
+            </tr>
+
+            <tr id="Rrname4" class="detailContainer" style="display:none;">
+                <td>4</td>
+                <td id="name4">大发明家</td>
+                <td name="t1">
+                    <input type="radio" name="q1" value="4">
+                </td>
+                <td name="t2">
+                    <input type="radio" name="q2" value="4">
+                </td>
+                <td name="t3">
+                    <input type="radio" name="q3" value="4">
+                </td>
+                <td name="t4">
+                    <input type="radio" name="q4" value="4">
+                </td>
+            </tr>
+
+
+            <tr id="Rrname5" class="detailContainer" style="display:none;">
+                <td>5</td>
+                <td id="name5">大发明家</td>
+                <td name="t1">
+                    <input type="radio" name="q1" value="5">
+                </td>
+                <td name="t2">
+                    <input type="radio" name="q2" value="5">
+                </td>
+                <td name="t3">
+                    <input type="radio" name="q3" value="5">
+                </td>
+                <td name="t4">
+                    <input type="radio" name="q4" value="5">
+                </td>
+            </tr>
+
+            <tr id="Rrname6" class="detailContainer" style="display:none;">
+                <td>6</td>
+                <td id="name6">大发明家</td>
+                <td name="t1">
+                    <input type="radio" name="q1" value="6">
+                </td>
+                <td name="t2">
+                    <input type="radio" name="q2" value="6">
+                </td>
+                <td name="t3">
+                    <input type="radio" name="q3" value="6">
+                </td>
+                <td name="t4">
+                    <input type="radio" name="q4" value="6">
+                </td>
+            </tr>
+
+
+            <tr id="Rrname7" class="detailContainer" style="display:none;">
+                <td>7</td>
+                <td id="name7">大发明家</td>
+                <td name="t1">
+                    <input type="radio" name="q1" value="7">
+                </td>
+                <td name="t2">
+                    <input type="radio" name="q2" value="7">
+                </td>
+                <td name="t3">
+                    <input type="radio" name="q3" value="7">
+                </td>
+                <td name="t4">
+                    <input type="radio" name="q4" value="7">
+                </td>
+            </tr>
+
+            <tr id="Rrname8" class="detailContainer" style="display:none;">
+                <td>8</td>
+                <td id="name8">大发明家</td>
+                <td name="t1">
+                    <input type="radio" name="q1" value="8">
+                </td>
+                <td name="t2">
+                    <input type="radio" name="q2" value="8">
+                </td>
+                <td name="t3">
+                    <input type="radio" name="q3" value="8">
+                </td>
+                <td name="t4">
+                    <input type="radio" name="q4" value="8">
+                </td>
+            </tr>
+
+            <tr id="Rrname9" class="detailContainer" style="display:none;">
+                <td>9</td>
+                <td id="name9">大发明家</td>
+                <td name="t1">
+                    <input type="radio" name="q1" value="9">
+                </td>
+                <td name="t2">
+                    <input type="radio" name="q2" value="9">
+                </td>
+                <td name="t3">
+                    <input type="radio" name="q3" value="9">
+                </td>
+                <td name="t4">
+                    <input type="radio" name="q4" value="9">
+                </td>
+            </tr>
+
+
+            <tr id="Rrname10" class="detailContainer" style="display:none;">
+                <td>10</td>
+                <td id="name10">大发明家</td>
+                <td name="t1">
+                    <input type="radio" name="q1" value="10">
+                </td>
+                <td name="t2">
+                    <input type="radio" name="q2" value="10">
+                </td>
+                <td name="t3">
+                    <input type="radio" name="q3" value="10">
+                </td>
+                <td name="t4">
+                    <input type="radio" name="q4" value="10">
+                </td>
+            </tr>
+
+            <tr id="Rrname11" class="detailContainer" style="display:none;">
+                <td>11</td>
+                <td id="name11">大发明家</td>
+                <td name="t1">
+                    <input type="radio" name="q1" value="11">
+                </td>
+                <td name="t2">
+                    <input type="radio" name="q2" value="11">
+                </td>
+                <td name="t3">
+                    <input type="radio" name="q3" value="11">
+                </td>
+                <td name="t4">
+                    <input type="radio" name="q4" value="11">
+                </td>
+            </tr>
+
+            <tr id="Rrname12" class="detailContainer" style="display:none;">
+                <td>12</td>
+                <td id="name12">大发明家</td>
+                <td name="t1">
+                    <input type="radio" name="q1" value="12">
+                </td>
+                <td name="t2">
+                    <input type="radio" name="q2" value="12">
+                </td>
+                <td name="t3">
+                    <input type="radio" name="q3" value="12">
+                </td>
+                <td name="t4">
+                    <input type="radio" name="q4" value="12">
+                </td>
+            </tr>
+
+
+            <tr id="Rrname13" class="detailContainer" style="display:none;">
+                <td>13</td>
+                <td id="name13">大发明家</td>
+                <td name="t1">
+                    <input type="radio" name="q1" value="13">
+                </td>
+                <td name="t2">
+                    <input type="radio" name="q2" value="13">
+                </td>
+                <td name="t3">
+                    <input type="radio" name="q3" value="13">
+                </td>
+                <td name="t4">
+                    <input type="radio" name="q4" value="13">
+                </td>
+            </tr>
+
+            <tr id="Rrname14" class="detailContainer" style="display:none;">
+                <td>14</td>
+                <td id="name14">大发明家</td>
+                <td name="t1">
+                    <input type="radio" name="q1" value="14">
+                </td>
+                <td name="t2">
+                    <input type="radio" name="q2" value="14">
+                </td>
+                <td name="t3">
+                    <input type="radio" name="q3" value="14">
+                </td>
+                <td name="t4">
+                    <input type="radio" name="q4" value="14">
+                </td>
+            </tr>
+
+            <tr id="Rrname15" class="detailContainer" style="display:none;">
+                <td>15</td>
+                <td id="name15">大发明家</td>
+                <td name="t1">
+                    <input type="radio" name="q1" value="15">
+                </td>
+                <td name="t2">
+                    <input type="radio" name="q2" value="15">
+                </td>
+                <td name="t3">
+                    <input type="radio" name="q3" value="15">
+                </td>
+                <td name="t4">
+                    <input type="radio" name="q4" value="15">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="race_input">
+        <div class="end_time">
+            竞猜还未截止
+        </div>
+        <div class="input_money">
+            <input type="number" id="game_money" value="输入金币">
+            <button id="first_submit">下注</button>
+        </div>
+    </div>
+    <div class="race_table">
+        <table class="race_have_add">
+            <tr><th>场次</th><th>玩法</th><th>选号</th><th>金币</th><th>操作</th></tr>
+            <tbody id="race_have_add_detail">
+
+            </tbody>
+        </table>
+        <button id="final_addd_game">确定投注</button>
+    </div>
+</div>
+<div class="history_content hide">
+    <table class="table_history">
+        <thead>
+        <tr><th>序号</th><th>场次</th><th>玩法</th><th>选号</th><th>下注金额</th><th>奖金</th></tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <button id="getMoreHistory">载入更多</button>
+</div>
+
+<script src="/bbs/template/saima/jc/jquery-1.11.1.min.js"></script>
+<script src="/bbs/template/saima/jc_m/main.js"></script>
+</body>
+</html>

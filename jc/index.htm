@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        try {
+            var urlhash = window.location.hash;
+            if (!urlhash.match("fromapp"))
+            {
+                if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i)))
+                {
+                    window.location="../jc_m";
+                }
+            }
+        }
+        catch(err)
+        {
+
+        }
+    </script>
     <meta charset="UTF-8">
     <title>香港赛马</title>
     <link href="/bbs/template/saima/jc/css/main.css" rel="stylesheet">
 </head>
-
 <body>
 <div class="hpic"><img src="/bbs/template/saima/jc/img/bg3331.png" /></div>
 <span id="pptm2" style="display:none"></span>&nbsp;
